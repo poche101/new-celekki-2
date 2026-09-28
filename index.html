@@ -763,7 +763,7 @@
           <span class="eyebrow">Teaching video series</span>
           <h2>Higher Life</h2>
         </div>
-        <a class="see-all" style="color:rgba(250,246,239,0.7);" href="#/higher-life">Open the full archive</a>
+        <a class="see-all" style="color:rgba(250,246,239,0.7);" href="#/higher-life">Other Episodes</a>
       </div>
       <div class="hl-grid">
         <div class="hl-feature">
@@ -774,19 +774,19 @@
         <div class="hl-list">
           <div class="hl-item">
             <span class="ep-no">141</span>
-            <div><div class="hl-t">The Discipline of Showing Up</div><div class="hl-s">32 min · Season 9</div></div>
+            <div><div class="hl-t">The Discipline of Showing Up</div><div class="hl-s">32 min · Episode 9</div></div>
           </div>
           <div class="hl-item">
             <span class="ep-no">140</span>
-            <div><div class="hl-t">What Faith Sounds Like at Work</div><div class="hl-s">28 min · Season 9</div></div>
+            <div><div class="hl-t">What Faith Sounds Like at Work</div><div class="hl-s">28 min · Episode 10</div></div>
           </div>
           <div class="hl-item">
             <span class="ep-no">139</span>
-            <div><div class="hl-t">Rebuilding After a Hard Year</div><div class="hl-s">35 min · Season 9</div></div>
+            <div><div class="hl-t">Rebuilding After a Hard Year</div><div class="hl-s">35 min · Episode 11</div></div>
           </div>
           <div class="hl-item">
             <span class="ep-no">138</span>
-            <div><div class="hl-t">Prayer as a First Language</div><div class="hl-s">30 min · Season 9</div></div>
+            <div><div class="hl-t">Prayer as a First Language</div><div class="hl-s">30 min · Episode 12</div></div>
           </div>
         </div>
       </div>
@@ -918,12 +918,12 @@
 </div>
 
 <div class="page" data-page="higher-life">
-  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Higher Life</div><h1>Higher Life</h1><p class="lede">A video series of teachings. Browse every episode by season and topic.</p></div>
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Higher Life</div><h1>Higher Life</h1><p class="lede">A video series of teachings. Browse every episode and topic.</p></div>
   <div class="wrap page-body">
     <div class="hl-feature" id="hlFeature" style="margin-bottom:28px;"></div>
     <div class="toolbar">
       <input class="search-input" id="hlSearch" type="search" placeholder="Search episodes" aria-label="Search episodes">
-      <select class="select" id="hlSeason" aria-label="Season"><option value="all">All seasons</option><option value="9">Season 9</option><option value="8">Season 8</option></select>
+      <select class="select" id="hlSeason" aria-label="Season"><option value="all">All Episodes</option><option value="9">Episode 9</option><option value="8">Episode 8</option></select>
     </div>
     <div class="chips" id="hlChips"></div>
     <div class="grid" id="hlGrid"></div>
@@ -1175,7 +1175,7 @@
   <span class="toast-dot"></span>
   <div>
     <h5 id="toastTitle">New Higher Life episode published</h5>
-    <p id="toastBody">Episode 142 — Carrying Peace Into a Loud Season is now available.</p>
+    <p id="toastBody">Episode 14 — Carrying Peace Into a Loud Season is now available.</p>
     <button onclick="hideToast()">Dismiss</button>
   </div>
 </div>
@@ -1555,19 +1555,19 @@
 
   /* Higher Life */
   const episodes = [
-    { no:142, title:"Carrying Peace Into a Loud Season", topic:"Peace", season:9, mins:34 },
-    { no:141, title:"The Discipline of Showing Up", topic:"Discipline", season:9, mins:32 },
-    { no:140, title:"What Faith Sounds Like at Work", topic:"Work", season:9, mins:28 },
-    { no:139, title:"Rebuilding After a Hard Year", topic:"Renewal", season:9, mins:35 },
-    { no:138, title:"Prayer as a First Language", topic:"Prayer", season:9, mins:30 },
-    { no:137, title:"Home as a Place of Peace", topic:"Family", season:9, mins:33 },
-    { no:136, title:"Working Without Worry", topic:"Work", season:9, mins:29 },
-    { no:135, title:"The Quiet Habits of Faith", topic:"Discipline", season:9, mins:31 },
-    { no:134, title:"Hope When Plans Change", topic:"Renewal", season:8, mins:36 },
-    { no:133, title:"Praying With Confidence", topic:"Prayer", season:8, mins:27 },
-    { no:132, title:"Building a Peaceful Marriage", topic:"Family", season:8, mins:40 },
+    { no:142, title:"Carrying Peace Into a Loud Season", topic:"Peace", Episode:9, mins:34 },
+    { no:141, title:"The Discipline of Showing Up", topic:"Discipline", Episode:9, mins:32 },
+    { no:140, title:"What Faith Sounds Like at Work", topic:"Work", Episode:8, mins:28 },
+    { no:139, title:"Rebuilding After a Hard Year", topic:"Renewal", Episode:8, mins:35 },
+    { no:138, title:"Prayer as a First Language", topic:"Prayer", Episodeson:9, mins:30 },
+    { no:137, title:"Home as a Place of Peace", topic:"Family", Episode:10, mins:33 },
+    { no:136, title:"Working Without Worry", topic:"Work", Episode:11, mins:29 },
+    { no:135, title:"The Quiet Habits of Faith", topic:"Discipline", Episode:12, mins:31 },
+    { no:134, title:"Hope When Plans Change", topic:"Renewal", Episode:8, mins:36 },
+    { no:133, title:"Praying With Confidence", topic:"Prayer", Episode:8, mins:27 },
+    { no:132, title:"Building a Peaceful Marriage", topic:"Family", Episode:8, mins:40 },
     { no:131, title:"Rest Is Not Laziness", topic:"Peace", season:8, mins:26 }
-  ].map(e => Object.assign({ speaker:"Pastor Emeka Okafor" }, e));
+  ].map(e => Object.assign({ speaker:"Pastor Deola Phillips" }, e));
   const f0 = episodes[0];
   $('hlFeature').innerHTML = `<div class="ep">Featured · Episode ${f0.no}</div><h3>${f0.title}</h3><p>${f0.speaker} · Season ${f0.season} · ${f0.mins} min</p>`;
   let hlTopic = 'All', hlSeason = 'all', hlQ = '';
