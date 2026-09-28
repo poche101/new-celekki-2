@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christ Embassy Lekki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10182B;
+    --ink-soft:#334155;
+    --ivory:#F5F8FC;
+    --paper:#EBF1F8;
+    --blue:#0D6EFD;
+    --blue-soft:#86B7FE;
+    --burgundy:#DC2626;
+    --charcoal:#1E293B;
+    --grey:#64748B;
+    --line:#E2E8F0;
+    --line-soft:rgba(16,24,43,0.1);
+    --radius-s:12px;
+    --radius-m:18px;
+    --maxw:1180px;
+    --shadow-s:0 6px 16px -10px rgba(15,23,42,0.18);
+    --shadow-m:0 14px 32px -16px rgba(15,23,42,0.22);
+    --shadow-l:0 24px 56px -24px rgba(15,23,42,0.3);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;}
+  ul{margin:0;padding:0;list-style:none;}
+
+  .skip-link{
+    position:absolute;left:-9999px;top:0;
+    background:var(--ink);color:var(--ivory);
+    padding:10px 16px;z-index:200;
+  }
+  .skip-link:focus{left:12px;top:12px;}
+
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);
+    box-shadow:0 1px 0 rgba(16,24,43,0.06), 0 12px 28px -24px rgba(16,24,43,0.3);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .wordmark{
+    font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:700;
+    letter-spacing:0.01em;
+  }
+  .wordmark span{color:var(--blue);}
+  nav.primary-nav{display:none;}
+  nav.primary-nav ul{display:flex;gap:24px;}
+  nav.primary-nav a{
+    font-size:0.94rem;color:var(--ink-soft);
+    padding:6px 0;border-bottom:1px solid transparent;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  nav.primary-nav a:hover{border-color:var(--blue);color:var(--ink);}
+  .header-actions{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;font-size:0.92rem;font-weight:600;
+    border-radius:12px;border:1px solid transparent;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-blue{background:var(--blue);color:#fff;box-shadow:0 10px 22px -10px rgba(13,110,253,0.55);}
+  .btn-blue:hover{background:#0b5ed7;box-shadow:0 14px 26px -10px rgba(13,110,253,0.65);}
+  .btn-ghost{border-color:var(--ink-soft);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--blue);}
+  .btn-line{color:var(--ink-soft);font-size:0.92rem;}
+  .btn-lg{padding:14px 34px;font-size:1rem;}
+  .menu-toggle{
+    display:inline-flex;background:none;border:none;padding:8px;
+  }
+  .menu-toggle svg{width:22px;height:22px;}
+
+  @media(min-width:1100px){
+    nav.primary-nav{display:block;}
+    .menu-toggle{display:none;}
+    .header-actions .btn-line{display:inline-flex;}
+  }
+  @media(max-width:1099px){
+    .header-actions .btn-line{display:none;}
+  }
+
+  /* ---------- Hero: console-first ---------- */
+  .hero{
+    padding:24px 0 56px;
+    border-bottom:1px solid var(--line-soft);
+  }
+
+  /* Media console */
+  .console{
+    background:var(--ink);
+    border-radius:var(--radius-m);
+    overflow:hidden;
+    position:relative;
+    box-shadow:var(--shadow-l);
+  }
+  .console-stage{
+    position:relative;aspect-ratio:16/9;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#1c2a52 0%, #10182B 55%, #0b1120 100%);
+    transition:background 0.5s ease;
+  }
+  .console-stage.mode-excerpts{background:linear-gradient(160deg,#173347 0%, #10182B 55%, #0b1120 100%);}
+  .console-stage.mode-featured{background:linear-gradient(160deg,#1b2150 0%, #10182B 55%, #0b1120 100%);}
+
+  .console-stage::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(134,183,254,0.2), transparent 45%);
+  }
+  .console-badge{
+    position:absolute;top:18px;left:18px;
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:0.78rem;font-weight:600;letter-spacing:0.03em;
+    padding:5px 12px;border-radius:999px;
+    background:rgba(250,246,239,0.14);color:var(--ivory);
+    box-shadow:var(--shadow-s);
+  }
+  .console-badge.is-live{background:var(--burgundy);}
+  .console-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--ivory);}
+  .console-badge.is-live .dot{animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+
+  .play-btn{
+    position:relative;z-index:1;
+    width:72px;height:72px;border-radius:50%;
+    background:rgba(250,246,239,0.14);
+    border:1px solid rgba(250,246,239,0.35);
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 12px 30px -10px rgba(0,0,0,0.5);
+  }
+  .play-btn:hover{background:rgba(250,246,239,0.22);transform:scale(1.06);}
+  .play-btn svg{width:22px;height:22px;margin-left:4px;fill:var(--ivory);}
+
+  .console-tabs{
+    display:flex;gap:6px;padding:14px;background:#0b1120;
+  }
+  .console-tab{
+    flex:1;padding:10px 6px;border-radius:12px;border:1px solid rgba(250,246,239,0.14);
+    background:transparent;color:rgba(250,246,239,0.6);
+    font-size:0.86rem;font-weight:500;
+    transition:all .2s ease;
+  }
+  .console-tab[aria-pressed="true"]{
+    background:var(--blue-soft);color:var(--ink);border-color:transparent;
+    box-shadow:0 8px 18px -8px rgba(134,183,254,0.5);
+  }
+
+  /* Comments — compact, sits directly under the console */
+  .console-comments{
+    margin-top:14px;background:#fff;border-radius:var(--radius-m);
+    padding:14px 16px;box-shadow:var(--shadow-m);
+  }
+  .cc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+  .cc-head h4{font-size:0.88rem;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink);letter-spacing:0;}
+  .cc-head span{font-size:0.76rem;color:var(--grey);}
+  .cc-item{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);}
+  .cc-item:first-of-type{border-top:none;}
+  .cc-avatar{
+    width:26px;height:26px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(150deg,var(--blue-soft),var(--blue));
+  }
+  .cc-body .cc-name{font-size:0.8rem;font-weight:600;color:var(--ink);}
+  .cc-body .cc-time{font-size:0.72rem;color:var(--grey);margin-left:6px;font-weight:400;}
+  .cc-body p{font-size:0.84rem;color:var(--ink-soft);margin-top:1px;line-height:1.4;}
+  .cc-input{display:flex;gap:8px;margin-top:8px;}
+  .cc-input input{
+    flex:1;min-width:0;padding:8px 12px;border:1px solid var(--line);border-radius:10px;
+    font-family:inherit;font-size:0.84rem;background:var(--ivory);
+  }
+  .cc-input input:focus{outline:2px solid var(--blue);outline-offset:1px;}
+  .cc-input .btn{padding:8px 16px;font-size:0.84rem;border-radius:10px;}
+
+  /* Worship with us — directions card */
+  .worship{
+    margin-top:20px;background:#fff;border-radius:22px;box-shadow:var(--shadow-m);
+    overflow:hidden;display:grid;grid-template-columns:1fr;
+  }
+  .worship-info{padding:28px 24px 8px;}
+  .worship-action{padding:0 24px 28px;}
+  .worship-icon{
+    width:52px;height:52px;border-radius:16px;background:#DCE8FF;
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  }
+  .worship-icon svg{width:24px;height:24px;stroke:var(--blue);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .worship h2{font-size:clamp(1.7rem,4vw,2.1rem);}
+  .w-name{margin-top:14px;color:var(--blue);font-weight:700;font-size:1.05rem;}
+  .w-addr{margin-top:4px;color:#475569;font-size:0.98rem;line-height:1.6;}
+  .w-form{margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+  .w-label{font-size:0.76rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);}
+  .w-form input{
+    padding:14px 16px;border:1px solid var(--line);border-radius:12px;
+    font-family:inherit;font-size:1rem;background:#fff;color:var(--ink);
+  }
+  .w-form input:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:transparent;}
+  .btn-block{width:100%;justify-content:center;padding:15px 22px;font-size:1rem;font-weight:700;}
+  .w-locate{align-self:flex-start;background:none;border:none;padding:2px 0;color:var(--blue);font-size:0.86rem;font-weight:600;}
+  .w-foot{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:0.95rem;}
+  .w-phone{text-decoration:underline;text-underline-offset:3px;color:var(--ink-soft);}
+  @media(min-width:860px){
+    .console-stage{aspect-ratio:21/9;}
+    .worship{grid-template-columns:1fr 1fr;align-items:center;}
+    .worship-info{padding:40px;}
+    .worship-action{padding:40px 40px 40px 0;}
+    .w-form{margin-top:0;}
+  }
+
+  /* ---------- Section shell ---------- */
+  section{padding:76px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:40px;flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.2rem);max-width:20ch;}
+  .section-head .see-all{
+    font-size:0.92rem;color:var(--ink-soft);border-bottom:1px solid var(--line);
+    padding-bottom:2px;white-space:nowrap;
+  }
+  .section-head .see-all:hover{border-color:var(--blue);color:var(--ink);}
+  .eyebrow{color:var(--blue);font-size:0.74rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;display:block;}
+  .source-note{font-size:0.78rem;color:var(--grey);margin-top:6px;}
+
+  /* ---------- Welcome ---------- */
+  .welcome{background:var(--paper);}
+  .welcome .wrap{display:grid;gap:36px;}
+  .welcome h2{font-size:clamp(1.8rem,4vw,2.6rem);max-width:16ch;}
+  .welcome .lede{margin-top:20px;max-width:52ch;color:var(--ink-soft);font-size:1.05rem;}
+  .welcome-panel{
+    background:linear-gradient(150deg,#dbe7ff,#f5f8fc 70%);
+    border:1px solid var(--line);border-radius:var(--radius-m);
+    min-height:260px;display:flex;align-items:flex-end;padding:22px;
+    color:var(--grey);font-size:0.85rem;
+    box-shadow:var(--shadow-s);
+  }
+  @media(min-width:860px){
+    .welcome .wrap{grid-template-columns:1fr 1fr;align-items:center;}
+  }
+
+  /* ---------- Excerpts (horizontal scroll, blog-fed) ---------- */
+  .excerpts-row{
+    display:flex;gap:22px;overflow-x:auto;padding-bottom:8px;
+    scroll-snap-type:x mandatory;
+    margin:0 -24px;padding-left:24px;padding-right:24px;
+  }
+  .excerpt-card{
+    flex:0 0 auto;width:270px;scroll-snap-align:start;
+  }
+  .excerpt-thumb{
+    aspect-ratio:4/5;border-radius:var(--radius-m);
+    background:linear-gradient(160deg,#2a3358,#10182B);
+    position:relative;overflow:hidden;
+    box-shadow:var(--shadow-m);
+  }
+  .excerpt-thumb .dur{
+    position:absolute;bottom:10px;right:10px;
+    background:rgba(11,17,32,0.75);color:var(--ivory);
+    font-size:0.72rem;padding:2px 7px;border-radius:3px;
+  }
+  .excerpt-card h4{margin-top:14px;font-size:1.02rem;font-weight:600;max-width:26ch;}
+  .excerpt-card .meta{margin-top:6px;font-size:0.82rem;color:var(--grey);}
+
+  /* ---------- Higher Life ---------- */
+  .higher-life{background:var(--ink);color:var(--ivory);}
+  .higher-life h2, .higher-life .eyebrow{color:var(--ivory);}
+  .higher-life .eyebrow{color:var(--blue-soft);}
+  .hl-grid{display:grid;gap:32px;}
+  .hl-feature{
+    background:linear-gradient(160deg,#243055,#0b1120);
+    border-radius:var(--radius-m);padding:30px;min-height:280px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    border:1px solid rgba(250,246,239,0.08);
+    box-shadow:var(--shadow-l);
+  }
+  .hl-feature .ep{color:var(--blue-soft);font-size:0.86rem;margin-bottom:8px;}
+  .hl-feature h3{color:var(--ivory);font-size:1.5rem;font-weight:600;max-width:18ch;}
+  .hl-feature p{color:rgba(250,246,239,0.65);margin-top:10px;max-width:38ch;font-size:0.94rem;}
+  .hl-list{display:flex;flex-direction:column;}
+  .hl-item{
+    display:flex;gap:16px;padding:16px 0;
+    border-top:1px solid rgba(250,246,239,0.12);
+    align-items:center;
+  }
+  .hl-item:last-child{border-bottom:1px solid rgba(250,246,239,0.12);}
+  .hl-item .ep-no{font-family:'Inter',sans-serif;font-size:1.1rem;color:var(--blue-soft);width:48px;flex-shrink:0;}
+  .hl-item .hl-t{font-size:0.98rem;color:var(--ivory);}
+  .hl-item .hl-s{font-size:0.82rem;color:rgba(250,246,239,0.5);margin-top:3px;}
+  @media(min-width:900px){.hl-grid{grid-template-columns:1.1fr 1fr;}}
+
+  /* ---------- Best Dresser (blog-fed) ---------- */
+  .bd-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+  }
+  .bd-tile{
+    aspect-ratio:3/4;border-radius:var(--radius-s);position:relative;overflow:hidden;
+    background:linear-gradient(150deg,#bcd6fe,#0D6EFD 130%);
+    box-shadow:var(--shadow-m);
+  }
+  .bd-tile.alt{background:linear-gradient(150deg,#c7d2fe,#4338ca 130%);}
+  .bd-tile .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:14px;
+    background:linear-gradient(0deg, rgba(16,24,43,0.75), transparent);
+    color:var(--ivory);
+  }
+  .bd-tile .cap .name{font-family:'Inter',sans-serif;font-size:1rem;}
+  .bd-tile .cap .tag{font-size:0.75rem;opacity:0.75;margin-top:2px;}
+  .bd-tile.feature{grid-column:span 2;aspect-ratio:16/10;}
+  @media(min-width:720px){
+    .bd-grid{grid-template-columns:repeat(4,1fr);}
+    .bd-tile.feature{grid-column:span 2;}
+  }
+
+  /* ---------- Events (blog-fed) ---------- */
+  .events-list{display:flex;flex-direction:column;gap:12px;}
+  .event-row{
+    display:flex;gap:22px;align-items:center;
+    padding:16px 20px;background:#fff;border-radius:16px;box-shadow:var(--shadow-s);
+  }
+  .event-date{
+    flex-shrink:0;width:66px;text-align:center;
+  }
+  .event-date .d{font-family:'Inter',sans-serif;font-size:1.8rem;color:var(--blue);line-height:1;}
+  .event-date .m{font-size:0.76rem;color:var(--grey);letter-spacing:0.04em;margin-top:2px;}
+  .event-body h4{font-size:1.05rem;font-weight:600;}
+  .event-body .meta{font-size:0.86rem;color:var(--grey);margin-top:4px;}
+  .event-row .btn{margin-left:auto;flex-shrink:0;}
+  @media(max-width:640px){.event-row .btn{display:none;}}
+
+  /* ---------- Fellowships & Departments ---------- */
+  .min-grid{
+    display:grid;grid-template-columns:1fr;gap:14px;
+  }
+  .min-item{
+    padding:22px;background:#fff;border-radius:18px;box-shadow:var(--shadow-s);
+    display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;
+  }
+  .min-item h4{font-size:1.15rem;font-weight:600;}
+  .min-item p{color:var(--grey);font-size:0.92rem;max-width:48ch;margin-top:6px;}
+  .min-item .dept-phone{
+    display:inline-flex;align-items:center;gap:7px;margin-top:10px;
+    font-size:0.86rem;color:var(--ink-soft);
+  }
+  .min-item .dept-phone svg{width:14px;height:14px;fill:none;stroke:var(--blue);stroke-width:1.8;flex-shrink:0;}
+  .min-item .dept-phone a{border-bottom:1px solid var(--line);}
+  .min-item .dept-phone a:hover{border-color:var(--blue);color:var(--ink);}
+  @media(min-width:760px){.min-grid{grid-template-columns:1fr 1fr;column-gap:16px;}
+    .min-item{grid-column:span 1;}}
+
+  .view-more-wrap{display:flex;justify-content:center;margin-top:32px;}
+  .view-more-wrap[hidden]{display:none;}
+
+  /* ---------- Testimonies ---------- */
+  .testimonies{background:var(--paper);}
+  .t-slider{position:relative;min-height:170px;}
+  .t-slide{
+    position:absolute;inset:0;
+    opacity:0;transform:translateX(16px);
+    transition:opacity .45s ease, transform .45s ease;
+    pointer-events:none;
+  }
+  .t-slide.is-active{opacity:1;transform:translateX(0);pointer-events:auto;position:relative;}
+  .quote{
+    font-family:'Inter',sans-serif;font-weight:600;line-height:1.35;
+    font-size:clamp(1.3rem,2.6vw,1.7rem);max-width:34ch;color:var(--ink);
+  }
+  .quote-attr{margin-top:18px;font-size:0.88rem;color:var(--grey);font-style:normal;font-family:'Inter',sans-serif;}
+  .t-controls{display:flex;align-items:center;gap:16px;margin-top:34px;}
+  .t-dots{display:flex;gap:8px;}
+  .t-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;padding:0;transition:background .2s ease, transform .2s ease;}
+  .t-dot.is-active{background:var(--blue);transform:scale(1.25);}
+  .t-arrow{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
+    background:#fff;display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-s);transition:border-color .2s ease;
+  }
+  .t-arrow:hover{border-color:var(--blue);}
+  .t-arrow svg{width:15px;height:15px;stroke:var(--ink);stroke-width:1.8;fill:none;}
+
+  /* ---------- Giving / Prayer band ---------- */
+  .band{background:var(--ink);color:var(--ivory);}
+  .band .wrap{display:grid;gap:36px;}
+  .band-col h3{color:var(--ivory);font-size:1.5rem;font-weight:600;max-width:16ch;}
+  .band-col p{color:rgba(250,246,239,0.65);margin-top:12px;max-width:38ch;font-size:0.95rem;}
+  .band-col{padding:22px 0;border-top:1px solid rgba(250,246,239,0.15);}
+  .band-col .btn{margin-top:20px;}
+  
+
+  /* ---------- Notify ---------- */
+  .notify .wrap{
+    display:flex;flex-direction:column;gap:22px;
+    align-items:flex-start;
+  }
+  .notify h2{font-size:1.6rem;max-width:18ch;}
+  .notify-form{
+    display:flex;gap:10px;width:100%;max-width:440px;flex-wrap:wrap;
+  }
+  .notify-form input{
+    flex:1;min-width:200px;padding:13px 16px;border:1px solid var(--line);
+    border-radius:12px;font-family:inherit;font-size:0.94rem;background:#fff;
+  }
+  .notify-form input:focus{outline:2px solid var(--blue);outline-offset:1px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:rgba(250,246,239,0.6);padding:64px 0 32px;}
+  .foot-grid{display:grid;gap:36px;grid-template-columns:1.3fr repeat(3,1fr);}
+  .foot-grid h5{color:var(--ivory);font-family:'Inter',sans-serif;font-weight:600;font-size:0.86rem;margin-bottom:14px;}
+  .foot-grid li{margin-bottom:9px;font-size:0.88rem;}
+  .foot-grid a:hover{color:var(--ivory);}
+  .foot-word{font-family:'Inter',sans-serif;color:var(--ivory);font-size:1.3rem;margin-bottom:10px;}
+  .foot-word span{color:var(--blue-soft);}
+  .foot-bottom{
+    margin-top:52px;padding-top:22px;border-top:1px solid rgba(250,246,239,0.12);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.8rem;
+  }
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+
+  /* ---------- Push notification toast ---------- */
+  .toast{
+    position:fixed;left:20px;bottom:68px;z-index:300;
+    max-width:340px;background:var(--ink);color:var(--ivory);
+    border-radius:var(--radius-m);padding:16px 18px;
+    box-shadow:var(--shadow-l);
+    display:flex;gap:12px;align-items:flex-start;
+    transform:translateY(140%);opacity:0;
+    transition:transform .4s ease, opacity .4s ease;
+  }
+  .toast.is-visible{transform:translateY(0);opacity:1;}
+  .toast .toast-dot{width:8px;height:8px;border-radius:50%;background:var(--blue-soft);margin-top:6px;flex-shrink:0;}
+  .toast h5{font-size:0.9rem;font-weight:600;color:var(--ivory);}
+  .toast p{font-size:0.82rem;color:rgba(250,246,239,0.65);margin-top:4px;}
+  .toast button{background:none;border:none;color:rgba(250,246,239,0.5);font-size:0.78rem;margin-top:8px;padding:0;}
+  .demo-trigger{
+    background:#fff;border:1px solid var(--line);
+    border-radius:999px;padding:10px 16px;font-size:0.78rem;color:var(--grey);
+    box-shadow:var(--shadow-m);
+  }
+
+  /* ---------- Ad popup ---------- */
+  .ad-overlay{
+    position:fixed;inset:0;background:rgba(16,24,43,0.55);
+    display:none;align-items:center;justify-content:center;z-index:400;padding:20px;
+  }
+  .ad-overlay.is-visible{display:flex;}
+  .ad-card{
+    background:#fff;border-radius:var(--radius-m);
+    max-width:270px;width:100%;overflow:hidden;
+    box-shadow:var(--shadow-l);
+  }
+  .ad-banner{
+    aspect-ratio:2/1;background:linear-gradient(150deg,#9ec5fe,#0D6EFD 120%);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ivory);font-family:'Inter',sans-serif;font-size:0.95rem;text-align:center;padding:12px;
+  }
+  .ad-body{padding:14px 16px 16px;}
+  .ad-body .tag{font-size:0.72rem;color:var(--grey);letter-spacing:0.03em;}
+  .ad-body h4{margin-top:4px;font-size:0.95rem;}
+  .ad-body p{margin-top:6px;font-size:0.8rem;color:var(--ink-soft);}
+  .ad-actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+  .ad-actions .btn{padding:8px 16px;font-size:0.82rem;}
+  .ad-close{background:none;border:none;font-size:0.8rem;color:var(--grey);padding:6px;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+  }
+
+  nav.primary-nav a.is-current{color:var(--ink);border-color:var(--blue);}
+  .icon-btn{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);}
+  .icon-btn:hover{background:#EEF4FF;color:var(--blue);}
+  .icon-btn svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;}
+
+  /* ---------- Pages (hash-routed) ---------- */
+  .page{display:none;}
+  .page.is-active{display:block;animation:pageIn .35s ease;}
+  @keyframes pageIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  [hidden]{display:none !important;}
+  .page-head{padding:40px 24px 28px;}
+  .crumbs{font-size:0.8rem;color:var(--grey);margin-bottom:14px;}
+  .crumbs a:hover{color:var(--blue);}
+  .page-head h1{font-size:clamp(2rem,5vw,2.9rem);}
+  .page-head .lede{margin-top:12px;max-width:60ch;color:var(--ink-soft);font-size:1.05rem;}
+  .page-body{padding-bottom:72px;}
+  .sub{font-size:1.4rem;margin:44px 0 16px;}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));}
+  .card{background:#fff;border-radius:18px;box-shadow:var(--shadow-s);padding:22px;}
+  .card.link{display:block;transition:transform .2s ease, box-shadow .2s ease;}
+  .card.link:hover{transform:translateY(-2px);box-shadow:var(--shadow-m);}
+  .card h3{font-size:1.1rem;font-weight:600;letter-spacing:-0.01em;}
+  .card p{color:var(--grey);font-size:0.92rem;margin-top:6px;}
+  .card .role{color:var(--blue);font-weight:600;font-size:0.86rem;margin-top:4px;}
+  .thumb{aspect-ratio:16/10;border-radius:14px;background:linear-gradient(160deg,#dbe7ff,#93b4f8);position:relative;margin-bottom:14px;overflow:hidden;}
+  .thumb.dark{background:linear-gradient(160deg,#243055,#0b1120);}
+  .thumb .badge{position:absolute;left:10px;top:10px;background:rgba(255,255,255,0.92);color:var(--ink);font-size:0.72rem;font-weight:600;padding:3px 9px;border-radius:999px;}
+  .thumb .dur{position:absolute;right:10px;bottom:10px;background:rgba(11,17,32,0.75);color:#fff;font-size:0.72rem;padding:2px 7px;border-radius:6px;}
+  .thumb .play{position:absolute;inset:0;margin:auto;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;}
+  .thumb .play svg{width:14px;height:14px;fill:#fff;margin-left:2px;}
+  .meta{font-size:0.82rem;color:var(--grey);margin-top:6px;}
+  .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px;}
+  .search-input,.select{padding:12px 16px;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:0.95rem;background:#fff;color:var(--ink);}
+  .search-input{flex:1;min-width:200px;}
+  .search-input:focus,.select:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:transparent;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+  .toolbar + .chips{margin-top:-8px;}
+  .chip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:0.85rem;font-weight:500;color:var(--ink-soft);}
+  .chip.is-active{background:var(--blue);border-color:var(--blue);color:#fff;}
+  .empty{padding:40px 0;text-align:center;color:var(--grey);}
+  .split{display:grid;gap:20px;grid-template-columns:1fr;}
+  @media(min-width:860px){.split{grid-template-columns:1fr 1fr;}.split.wide-left{grid-template-columns:1.2fr 0.8fr;}}
+  .form{display:flex;flex-direction:column;gap:14px;}
+  .field label{display:block;font-size:0.8rem;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+  .field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:0.95rem;background:#fff;color:var(--ink);}
+  .field textarea{min-height:130px;resize:vertical;}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:transparent;}
+  .check{display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;color:var(--ink-soft);}
+  .check input{width:18px;height:18px;margin-top:2px;accent-color:var(--blue);flex-shrink:0;}
+  .notice{background:#E7F0FF;color:#0b4db3;border-radius:12px;padding:14px 18px;font-size:0.95rem;font-weight:500;}
+  .avatar-lg{width:64px;height:64px;border-radius:50%;background:linear-gradient(150deg,var(--blue-soft),var(--blue));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:14px;}
+  .rows .row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:0.95rem;}
+  .rows .row:last-child{border-bottom:none;}
+  .rows .row span:first-child{color:var(--ink);font-weight:600;}
+  .rows .row span:last-child{color:var(--grey);text-align:right;}
+  .rows a{color:var(--blue);font-weight:600;}
+  .prose{max-width:760px;}
+  .prose h2{font-size:1.25rem;margin:30px 0 8px;}
+  .prose p,.prose li{color:var(--ink-soft);line-height:1.75;}
+  .prose ul{padding-left:20px;list-style:disc;margin:8px 0;}
+  .gate{text-align:center;max-width:460px;margin:20px auto 0;padding:36px 26px;}
+  .gate .worship-icon{margin:0 auto 20px;}
+  .gate .btn{margin:6px;}
+  .cookie-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .cookie-row:last-of-type{border-bottom:none;}
+  .cookie-row h3{font-size:1rem;}
+  .cookie-row p{margin-top:2px;}
+  .cookie-row input{width:22px;height:22px;accent-color:var(--blue);}
+  .live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--burgundy);margin-right:8px;animation:pulse 1.6s ease-in-out infinite;}
+
+  /* ---------- All pages sheet + prototype bar ---------- */
+  .sheet{position:fixed;inset:0;z-index:500;background:rgba(15,23,42,0.45);display:flex;justify-content:flex-end;}
+  .sheet-card{background:#fff;width:min(420px,100%);height:100%;overflow-y:auto;padding:22px 22px 40px;box-shadow:var(--shadow-l);}
+  .sheet-head{display:flex;justify-content:space-between;align-items:center;}
+  .sheet-head h3{font-size:1.2rem;}
+  .sheet-close{background:none;border:none;font-size:1.6rem;line-height:1;color:var(--grey);padding:6px 10px;}
+  .sheet-group{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin:22px 0 8px;}
+  .sheet-card a{display:block;padding:11px 12px;border-radius:10px;font-weight:500;color:var(--ink-soft);}
+  .sheet-card a:hover,.sheet-card a.is-current{background:#EEF4FF;color:var(--blue);}
+  .demo-bar{position:fixed;right:16px;bottom:16px;z-index:290;display:flex;gap:8px;}
+
+  /* ---------- Blog (traditional editorial layout) ---------- */
+  .blog-bar{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:32px;scroll-margin-top:90px;}
+  .blog-tabs{display:flex;gap:26px;overflow-x:auto;white-space:nowrap;max-width:100%;}
+  .blog-tab{background:none;border:none;padding:14px 0;font-size:0.92rem;font-weight:600;color:var(--grey);border-bottom:2px solid transparent;margin-bottom:-1px;}
+  .blog-tab:hover{color:var(--ink);}
+  .blog-tab.is-active{color:var(--ink);border-bottom-color:var(--blue);}
+  .blog-search{max-width:260px;flex:0 1 260px;padding:9px 14px;margin:8px 0;}
+  .g-article{background:linear-gradient(160deg,#dbe7ff,#7ea7f5);}
+  .g-excerpt{background:linear-gradient(160deg,#243055,#0b1120);}
+  .g-event{background:linear-gradient(150deg,#c7d2fe,#4338ca);}
+  .g-dresser{background:linear-gradient(150deg,#bcd6fe,#0D6EFD);}
+  .g-notice{background:linear-gradient(160deg,#e2e8f0,#94a3b8);}
+  .cat{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);}
+  .feat{display:grid;grid-template-columns:1fr;background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-m);margin-bottom:44px;}
+  .feat-img{display:block;position:relative;min-height:240px;}
+  .badge-cat{position:absolute;left:14px;top:14px;background:rgba(255,255,255,0.92);color:var(--ink);font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:999px;}
+  .feat-body{padding:28px 24px;}
+  .feat h2,.post h3,.article h1{font-family:'Lora',Georgia,serif;letter-spacing:-0.01em;}
+  .feat h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin:10px 0 12px;line-height:1.25;}
+  .feat h2 a:hover,.post h3 a:hover{color:var(--blue);}
+  .feat p{color:var(--ink-soft);line-height:1.7;}
+  .byline{display:flex;align-items:center;gap:10px;font-size:0.84rem;color:var(--grey);margin-top:14px;flex-wrap:wrap;}
+  .byline .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(150deg,var(--blue-soft),var(--blue));color:#fff;font-size:0.68rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .byline b{color:var(--ink);font-weight:600;}
+  .byline .sep{width:3px;height:3px;border-radius:50%;background:#94a3b8;}
+  .readmore{display:inline-flex;margin-top:16px;color:var(--blue);font-weight:600;font-size:0.92rem;}
+  .readmore:hover{text-decoration:underline;text-underline-offset:3px;}
+  @media(min-width:900px){.feat{grid-template-columns:1.1fr 1fr;}.feat-body{padding:44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;}}
+  .blog-layout{display:grid;gap:44px;grid-template-columns:1fr;}
+  @media(min-width:960px){.blog-layout{grid-template-columns:1fr 320px;}}
+  .post{display:grid;grid-template-columns:1fr;gap:16px;padding:28px 0;border-bottom:1px solid var(--line);}
+  .post:first-child{padding-top:0;}
+  @media(min-width:640px){.post{grid-template-columns:230px 1fr;gap:26px;}}
+  .post-thumb{display:block;position:relative;aspect-ratio:16/10;border-radius:14px;}
+  .post-thumb .dur{position:absolute;right:10px;bottom:10px;background:rgba(11,17,32,0.75);color:#fff;font-size:0.72rem;padding:2px 7px;border-radius:6px;}
+  .post h3{font-size:1.32rem;line-height:1.3;margin:6px 0 8px;}
+  .post p{color:var(--ink-soft);font-size:0.95rem;line-height:1.65;}
+  .pager{display:flex;gap:8px;justify-content:center;margin-top:34px;flex-wrap:wrap;}
+  .pager button{min-width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:600;color:var(--ink-soft);padding:0 14px;}
+  .pager button.is-active{background:var(--blue);color:#fff;border-color:var(--blue);}
+  .pager button:disabled{opacity:0.4;cursor:default;}
+  .widget{background:#fff;border-radius:18px;box-shadow:var(--shadow-s);padding:22px;margin-bottom:20px;}
+  .widget h4{font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);font-weight:700;margin-bottom:12px;font-family:'Inter',sans-serif;}
+  .cat-item{display:flex;justify-content:space-between;width:100%;background:none;border:none;padding:10px 0;border-bottom:1px solid var(--line);font-size:0.93rem;color:var(--ink-soft);text-align:left;}
+  .cat-item:last-child{border-bottom:none;}
+  .cat-item:hover{color:var(--blue);}
+  .cat-item span:last-child{color:var(--grey);}
+  .recent{display:block;padding:11px 0;border-bottom:1px solid var(--line);}
+  .recent:last-child{border-bottom:none;}
+  .recent b{display:block;font-size:0.92rem;font-weight:600;color:var(--ink);line-height:1.35;}
+  .recent span{font-size:0.78rem;color:var(--grey);}
+  .recent:hover b{color:var(--blue);}
+  /* single post */
+  .article{max-width:740px;margin:0 auto;padding-top:36px;}
+  .article h1{font-size:clamp(1.9rem,4.6vw,2.7rem);line-height:1.2;margin:10px 0 4px;}
+  .hero-img{position:relative;aspect-ratio:16/9;border-radius:18px;margin:26px 0;}
+  .hero-img .play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;}
+  .hero-img .play svg{width:18px;height:18px;fill:#fff;margin-left:2px;}
+  .article-body p{font-family:'Lora',Georgia,serif;font-size:1.1rem;line-height:1.85;color:#1f2937;margin:0 0 1.2em;}
+  .article-body.dropcap p:first-child::first-letter{float:left;font-size:3.6rem;line-height:0.9;padding:6px 10px 0 0;font-weight:700;color:var(--blue);}
+  .share-row{display:flex;gap:12px;align-items:center;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:32px 0;}
+  .postnav{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:640px){.postnav{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="#/">Christ Embassy <span>Lekki</span></a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a data-route="about" href="#/about">About</a></li>
+        <li><a data-route="ministries" href="#/ministries">Fellowships</a></li>
+        <li><a data-route="higher-life" href="#/higher-life">Higher Life</a></li>
+        <li><a data-route="blog" href="#/blog">Blog</a></li>
+        <li><a data-route="events" href="#/events">Events</a></li>
+        <li><a data-route="live" href="#/live">Live</a></li>
+        <li><a data-route="contact" href="#/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="#/search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
+      <a class="btn-line" href="#/login">Sign in</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open all pages">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="page is-active" data-page="home">
+
+  <!-- HERO / MEDIA CONSOLE — at the very top -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="console">
+        <div class="console-stage" id="consoleStage">
+          <span class="console-badge" id="consoleBadge"><span class="dot"></span><span id="badgeText">Live now</span></span>
+          <button class="play-btn" aria-label="Play">
+            <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
+          </button>
+        </div>
+        <div class="console-tabs" role="tablist" aria-label="Media console mode">
+          <button class="console-tab" role="tab" aria-pressed="true" data-mode="live">Live</button>
+          <button class="console-tab" role="tab" aria-pressed="false" data-mode="excerpts">Excerpts</button>
+          <button class="console-tab" role="tab" aria-pressed="false" data-mode="featured">Featured</button>
+        </div>
+      </div>
+
+      <div class="console-comments">
+        <div class="cc-head">
+          <h4>Live comments</h4>
+          <span id="ccCount">128 watching</span>
+        </div>
+        <div id="ccList"></div>
+        <div class="cc-input">
+          <input type="text" placeholder="Add a comment…" aria-label="Add a comment">
+          <button class="btn btn-blue" type="button">Post</button>
+        </div>
+      </div>
+
+      <div class="worship" id="worship">
+        <div class="worship-info">
+          <div class="worship-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg></div>
+          <h2>Worship with Us</h2>
+          <p class="w-name">Christ Embassy Lekki</p>
+          <p class="w-addr">LoveWorld Arena, Aare Bashiru Street, Chisco B/S<br>Lekki-Epe Expressway, Lagos</p>
+        </div>
+        <div class="worship-action">
+          <form class="w-form" id="routeForm">
+            <label class="w-label" for="fromInput">Get directions</label>
+            <input id="fromInput" type="text" placeholder="Enter your location (e.g. Ikeja)" autocomplete="off">
+            <button class="btn btn-blue btn-block" type="submit">Get Route</button>
+            <button class="w-locate" type="button" id="useLocation">Use my current location</button>
+          </form>
+          <div class="w-foot"><a class="w-phone" href="tel:+2349076415312">+234 907 641 5312</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME -->
+  <section class="welcome">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Who we are</span>
+        <h2>A church that meets you in the ordinary week, not just on Sunday.</h2>
+        <p class="lede">her you're visiting for the first time or you've called this home for years, there's a seat for you.</p>
+        <a class="btn btn-ghost" style="margin-top:26px;" href="#/about">Read our story</a>
+      </div>
+      <div class="welcome-panel">Photography: congregation in worship</div>
+    </div>
+  </section>
+
+  <!-- EXCERPTS — pulled from blog posts tagged "excerpt" -->
+  <section class="excerpts">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">This week</span>
+          <h2>Latest excerpts</h2>
+        </div>
+        <a class="see-all" href="#/blog">Browse all excerpts</a>
+      </div>
+      <div class="excerpts-row" id="excerptsRow"></div>
+      <p class="source-note">Pulled automatically from posts tagged "excerpt" in the blog.</p>
+    </div>
+  </section>
+
+  <!-- HIGHER LIFE — teaching video series -->
+  <section class="higher-life">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Teaching video series</span>
+          <h2>Higher Life</h2>
+        </div>
+        <a class="see-all" style="color:rgba(250,246,239,0.7);" href="#/higher-life">Open the full archive</a>
+      </div>
+      <div class="hl-grid">
+        <div class="hl-feature">
+          <div class="ep">Episode 142</div>
+          <h3>Carrying Peace Into a Loud Season</h3>
+          <p>This week's featured teaching, on staying anchored when everything around you is asking for a reaction.</p>
+        </div>
+        <div class="hl-list">
+          <div class="hl-item">
+            <span class="ep-no">141</span>
+            <div><div class="hl-t">The Discipline of Showing Up</div><div class="hl-s">32 min · Season 9</div></div>
+          </div>
+          <div class="hl-item">
+            <span class="ep-no">140</span>
+            <div><div class="hl-t">What Faith Sounds Like at Work</div><div class="hl-s">28 min · Season 9</div></div>
+          </div>
+          <div class="hl-item">
+            <span class="ep-no">139</span>
+            <div><div class="hl-t">Rebuilding After a Hard Year</div><div class="hl-s">35 min · Season 9</div></div>
+          </div>
+          <div class="hl-item">
+            <span class="ep-no">138</span>
+            <div><div class="hl-t">Prayer as a First Language</div><div class="hl-s">30 min · Season 9</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUNDAY BEST DRESSER — pulled from blog posts tagged "best-dresser" -->
+  <section class="best-dresser">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Community</span>
+          <h2>Sunday Best Dressers</h2>
+        </div>
+        <a class="see-all" href="#/best-dresser">See this month's picks</a>
+      </div>
+      <div class="bd-grid" id="bdGrid"></div>
+      <p class="source-note">Pulled automatically from posts tagged "best-dresser" in the blog.</p>
+    </div>
+  </section>
+
+  <!-- EVENTS — pulled from blog posts tagged "event" -->
+  <section class="events">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Save the date</span>
+          <h2>Upcoming events</h2>
+        </div>
+        <a class="see-all" href="#/events">Full calendar</a>
+      </div>
+      <div class="events-list" id="eventsList"></div>
+      <p class="source-note">Pulled automatically from posts tagged "event" in the blog.</p>
+    </div>
+  </section>
+
+  <!-- FELLOWSHIPS & DEPARTMENTS — names pulled from backend -->
+  <section class="ministries" id="fellowships">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Get connected</span>
+          <h2>Fellowships and Departments</h2>
+        </div>
+      </div>
+      <div class="min-grid" id="deptGrid"></div>
+      <div class="view-more-wrap"><button class="btn btn-ghost" id="deptMore" type="button">View more</button></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIES -->
+  <section class="testimonies">
+    <div class="wrap">
+      <span class="eyebrow">Testimonies</span>
+      <div class="t-slider" id="tSlider" aria-live="polite"></div>
+      <div class="t-controls">
+        <button class="t-arrow" id="tPrev" aria-label="Previous testimony"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="t-dots" id="tDots"></div>
+        <button class="t-arrow" id="tNext" aria-label="Next testimony"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIVING / PRAYER -->
+  <section class="band">
+    <div class="wrap">
+      <div class="band-col">
+        <h3>Send us a prayer request.</h3>
+        <p>Our prayer team reads every request and prays over them personally each week.</p>
+        <a class="btn btn-ghost" href="#/prayer" style="border-color:rgba(250,246,239,0.4);">Request prayer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTIFY -->
+  <section class="notify">
+    <div class="wrap">
+      <h2>Get notified when we go live.</h2>
+      <form class="notify-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" aria-label="Email address">
+        <button class="btn btn-blue" type="submit">Notify me</button>
+      </form>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<div class="page" data-page="about">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / About Us</div><h1>About Us</h1><p class="lede">Christ Embassy is not just a local assembly; it’s a vision. The Lord has called us to fulfill a very definite purpose, which is to take His divine presence to the peoples and nations.</p></div>
+  <div class="wrap page-body">
+    <div class="split">
+      <div class="card"><h3>Our Vision</h3><p>To take His divine presence to the peoples and nations of the world, demonstrating the character of His Spirit.</p></div>
+      <div class="thumb dark" style="aspect-ratio:auto;min-height:220px;margin:0;"></div>
+    </div>
+    <h2 class="sub">What we value</h2>
+    <div class="grid">
+      <div class="card"><h3>Worship</h3><p>Giving God our best in song, in service and in everyday life.</p></div>
+      <div class="card"><h3>The Word</h3><p>Clear, practical teaching that you can apply on Monday morning.</p></div>
+      <div class="card"><h3>Community</h3><p>Fellowships and departments where nobody has to do life alone.</p></div>
+      <div class="card"><h3>Service</h3><p>Outreach and missions that serve Lekki and beyond.</p></div>
+    </div>
+    <h2 class="sub">Service times</h2>
+    <div class="card rows">
+      <div class="row"><span>Sunday Celebration Service</span><span>9:00 AM</span></div>
+      <div class="row"><span>Midweek Service</span><span>Wednesday, 6:30 PM</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" data-page="leadership">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Leadership</div><h1>Leadership</h1><p class="lede">The pastors and leaders who serve this house.</p></div>
+  <div class="wrap page-body"><div class="grid" id="leadersGrid"></div></div>
+</div>
+
+<div class="page" data-page="ministries">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Fellowships &amp; Departments</div><h1>Fellowships &amp; Departments</h1><p class="lede">Find your place to belong and serve. Call any group directly.</p></div>
+  <div class="wrap page-body">
+    <div class="toolbar"><input class="search-input" id="deptSearch" type="search" placeholder="Search fellowships and departments" aria-label="Search fellowships and departments"></div>
+    <div class="grid" id="deptPageGrid"></div>
+  </div>
+</div>
+
+<div class="page" data-page="sermons">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Sermons</div><h1>Sermons &amp; Teachings</h1><p class="lede">Messages from Sunday services, midweek studies and special programmes.</p></div>
+  <div class="wrap page-body">
+    <div class="chips" id="sermonChips"></div>
+    <div class="grid" id="sermonGrid"></div>
+  </div>
+</div>
+
+<div class="page" data-page="higher-life">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Higher Life</div><h1>Higher Life</h1><p class="lede">A video series of teachings. Browse every episode by season and topic.</p></div>
+  <div class="wrap page-body">
+    <div class="hl-feature" id="hlFeature" style="margin-bottom:28px;"></div>
+    <div class="toolbar">
+      <input class="search-input" id="hlSearch" type="search" placeholder="Search episodes" aria-label="Search episodes">
+      <select class="select" id="hlSeason" aria-label="Season"><option value="all">All seasons</option><option value="9">Season 9</option><option value="8">Season 8</option></select>
+    </div>
+    <div class="chips" id="hlChips"></div>
+    <div class="grid" id="hlGrid"></div>
+  </div>
+</div>
+
+<div class="page" data-page="blog">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Blog</div><h1>CELekki Blog</h1><p class="lede">Articles, excerpts, announcements and stories from our church family. Everything posted here also appears on the homepage.</p></div>
+  <div class="wrap page-body">
+    <div class="blog-bar">
+      <div class="blog-tabs" id="blogTabs"></div>
+      <input class="search-input blog-search" id="blogSearch" type="search" placeholder="Search the blog" aria-label="Search the blog">
+    </div>
+    <div id="blogFeatured"></div>
+    <div class="blog-layout">
+      <div>
+        <div class="post-list" id="blogList"></div>
+        <nav class="pager" id="blogPager" aria-label="Blog pages"></nav>
+      </div>
+      <aside class="blog-side">
+        <div class="widget"><h4>Categories</h4><div id="blogCats"></div></div>
+        <div class="widget"><h4>Recent posts</h4><div id="blogRecent"></div></div>
+        <div class="widget">
+          <h4>Stay in the loop</h4>
+          <p class="meta" style="margin:0 0 12px;">Get new posts and announcements in your inbox.</p>
+          <form class="form" data-success="blogSubDone"><input class="search-input" type="email" placeholder="Your email address" aria-label="Email address" required><button class="btn btn-blue btn-block" type="submit">Subscribe</button></form>
+          <div class="notice" id="blogSubDone" hidden>Thanks for subscribing.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<div class="page" data-page="post">
+  <div class="wrap page-body"><article class="article" id="postView"></article></div>
+</div>
+
+<div class="page" data-page="best-dresser">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Sunday Best Dresser</div><h1>Sunday Best Dresser</h1><p class="lede">Celebrating our members who show up in style. Browse the archive by month.</p></div>
+  <div class="wrap page-body">
+    <div class="toolbar" style="justify-content:space-between;"><div class="chips" id="bdChips" style="margin:0;"></div><button class="btn btn-ghost" id="shareBtn" type="button">Share this page</button></div>
+    <div class="bd-grid" id="bdPageGrid"></div>
+  </div>
+</div>
+
+<div class="page" data-page="events">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Events</div><h1>Events</h1><p class="lede">What is coming up at the church.</p></div>
+  <div class="wrap page-body"><div class="events-list" id="eventsPageList"></div></div>
+</div>
+
+<div class="page" data-page="live">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Live</div><h1>Live</h1><p class="lede">Join the service as it happens.</p></div>
+  <div class="wrap page-body">
+    <div class="console">
+      <div class="console-stage">
+        <span class="console-badge is-live"><span class="dot"></span><span>Live now</span></span>
+        <button class="play-btn" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button>
+      </div>
+    </div>
+    <div class="split wide-left" style="margin-top:20px;">
+      <div class="console-comments" style="margin-top:0;">
+        <div class="cc-head"><h4>Live comments</h4><span>128 watching</span></div>
+        <div class="cc-item"><div class="cc-avatar"></div><div class="cc-body"><span class="cc-name">Ngozi A.<span class="cc-time">2m ago</span></span><p>Grateful to be watching from Abuja this morning.</p></div></div>
+        <div class="cc-item"><div class="cc-avatar"></div><div class="cc-body"><span class="cc-name">David O.<span class="cc-time">5m ago</span></span><p>This is exactly what I needed to hear today.</p></div></div>
+        <div class="cc-item"><div class="cc-avatar"></div><div class="cc-body"><span class="cc-name">Blessing E.<span class="cc-time">9m ago</span></span><p>Sharing this with my small group tonight!</p></div></div>
+        <div class="cc-input"><input type="text" placeholder="Add a comment…" aria-label="Add a comment"><button class="btn btn-blue" type="button">Post</button></div>
+      </div>
+      <div class="card rows">
+        <h3 style="margin-bottom:6px;">Service schedule</h3>
+        <div class="row"><span>Sunday</span><span>8:00 AM and 10:30 AM</span></div>
+        <div class="row"><span>Wednesday</span><span>6:00 PM</span></div>
+        <div class="row"><span>Friday</span><span>6:30 PM</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" data-page="meeting">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Meeting</div><h1>Meeting</h1><p class="lede">Private meetings for signed-in members.</p></div>
+  <div class="wrap page-body">
+    <div class="card gate" id="meetingGate">
+      <div class="worship-icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+      <h2 style="font-size:1.5rem;">Members only</h2>
+      <p style="margin:8px 0 18px;">Sign in to see your meetings and join a room.</p>
+      <a class="btn btn-blue" href="#/login">Sign in</a><a class="btn btn-ghost" href="#/login">Register</a>
+    </div>
+    <div id="meetingRoom" hidden>
+      <div class="toolbar" style="justify-content:space-between;"><span class="meta" style="margin:0;">Signed in as a member</span><button class="btn btn-ghost" id="signOutBtn" type="button">Sign out</button></div>
+      <div class="grid" id="meetingGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" data-page="giving">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Giving</div><h1>Giving</h1><p class="lede"></p></div>
+  <div class="wrap page-body"><div class="card gate">
+    <a class="btn btn-blue btn-lg" href="#" onclick="goToEspees(event)">Give with Espees</a>
+    <p class="meta" style="margin-top:14px;">You will be taken to Espees to complete your giving.</p>
+  </div></div>
+</div>
+
+<div class="page" data-page="prayer">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Prayer request</div><h1>Prayer Request</h1><p class="lede">Our prayer team reads and prays over every request.</p></div>
+  <div class="wrap page-body"><div class="card" style="max-width:640px;">
+    <form class="form" data-success="prayerDone">
+      <div class="field"><label for="pr1">Your name (optional)</label><input id="pr1" type="text"></div>
+      <div class="field"><label for="pr2">Email or phone (optional)</label><input id="pr2" type="text"></div>
+      <div class="field"><label for="pr3">Category</label><select id="pr3"><option>Healing</option><option>Family</option><option>Career and finances</option><option>Guidance</option><option>Thanksgiving</option><option>Other</option></select></div>
+      <div class="field"><label for="pr4">Your request</label><textarea id="pr4" required></textarea></div>
+      <label class="check"><input type="checkbox" checked> Keep my request private to the prayer team</label>
+      <button class="btn btn-blue btn-block" type="submit">Send request</button>
+    </form>
+    <div class="notice" id="prayerDone" hidden>Thank you. Our prayer team has received your request.</div>
+  </div></div>
+</div>
+
+<div class="page" data-page="contact">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Contact</div><h1>Contact</h1><p class="lede">We would love to hear from you.</p></div>
+  <div class="wrap page-body"><div class="split">
+    <div class="card rows">
+      <div class="row"><span>Address</span><span>LoveWorld Arena, Aare Bashiru Street, Chisco B/S, Lekki-Epe Expressway, Lagos</span></div>
+      <div class="row"><span>Phone</span><span><a href="tel:+2349076415312">+234 907 641 5312</a></span></div>
+      <div class="row"><span>Email</span><span><a href="mailto:hello@yourchurch.org">hello@yourchurch.org</a></span></div>
+      <div class="row"><span>Sunday services</span><span>8:00 AM and 10:30 AM</span></div>
+      <div style="padding-top:16px;"><a class="btn btn-blue" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=LoveWorld+Arena,+Aare+Bashiru+Street,+Lekki-Epe+Expressway,+Lagos">Get directions</a></div>
+    </div>
+    <div class="card">
+      <form class="form" data-success="contactDone">
+        <div class="field"><label for="ct1">Name</label><input id="ct1" type="text" required></div>
+        <div class="field"><label for="ct2">Email</label><input id="ct2" type="email" required></div>
+        <div class="field"><label for="ct3">Message</label><textarea id="ct3" required></textarea></div>
+        <button class="btn btn-blue btn-block" type="submit">Send message</button>
+      </form>
+      <div class="notice" id="contactDone" hidden>Thanks, your message has been sent.</div>
+    </div>
+  </div></div>
+</div>
+
+<div class="page" data-page="search">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Search</div><h1>Search</h1><p class="lede">Search sermons, episodes, posts, events and fellowships.</p></div>
+  <div class="wrap page-body">
+    <div class="toolbar"><input class="search-input" id="searchInput" type="search" placeholder="Search the whole site" aria-label="Search the whole site" autocomplete="off"></div>
+    <div class="grid" id="searchResults"></div>
+  </div>
+</div>
+
+<div class="page" data-page="login">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Member login</div><h1>Member Login / Register</h1><p class="lede">Access members-only meetings and your saved content.</p></div>
+  <div class="wrap page-body"><div class="card" style="max-width:480px;">
+    <div class="chips" id="authChips"></div>
+    <form class="form" id="signinForm">
+      <div class="field"><label for="li1">Email or phone</label><input id="li1" type="text" required></div>
+      <div class="field"><label for="li2">Password</label><input id="li2" type="password" required></div>
+      <button class="btn btn-blue btn-block" type="submit">Sign in</button>
+    </form>
+    <form class="form" id="registerForm" hidden>
+      <div class="field"><label for="rg1">Full name</label><input id="rg1" type="text" required></div>
+      <div class="field"><label for="rg2">Email or phone</label><input id="rg2" type="text" required></div>
+      <div class="field"><label for="rg3">Password</label><input id="rg3" type="password" required></div>
+      <label class="check"><input type="checkbox" required> I agree to the <a href="#/terms" style="color:var(--blue);">Terms</a> and <a href="#/privacy" style="color:var(--blue);">Privacy Policy</a></label>
+      <button class="btn btn-blue btn-block" type="submit">Create account</button>
+    </form>
+    <p class="meta" style="margin-top:14px;">Prototype: any details will sign you in.</p>
+  </div></div>
+</div>
+
+<div class="page" data-page="privacy">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Privacy Policy</div><h1>Privacy Policy</h1><p class="lede">Sample text for the prototype. To be reviewed before launch.</p></div>
+  <div class="wrap page-body prose">
+    <h2>What we collect</h2><p>Account details you give us, comments you post, prayer requests you submit, and basic visit analytics.</p>
+    <h2>How we use it</h2><ul><li>To run the website and members area</li><li>To send notifications you opted into</li><li>To understand which content helps people</li></ul>
+    <h2>Your choices</h2><p>You can change notification and cookie preferences at any time, and ask us to delete your account.</p>
+  </div>
+</div>
+
+<div class="page" data-page="terms">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Terms of Use</div><h1>Terms of Use</h1><p class="lede">Sample text for the prototype. To be reviewed before launch.</p></div>
+  <div class="wrap page-body prose">
+    <h2>Using the site</h2><p>Content is provided for personal, non-commercial use. Please keep comments respectful.</p>
+    <h2>Members area</h2><p>Keep your login private. Meeting access may be restricted to selected member groups.</p>
+    <h2>Moderation</h2><p>We may hide or remove comments and content that break these terms.</p>
+  </div>
+</div>
+
+<div class="page" data-page="cookies">
+  <div class="wrap page-head"><div class="crumbs"><a href="#/">Home</a> / Cookie preferences</div><h1>Cookie Preferences</h1><p class="lede">Choose what we can use on your device.</p></div>
+  <div class="wrap page-body"><div class="card" style="max-width:640px;">
+    <div class="cookie-row"><div><h3>Necessary</h3><p>Keeps the site and your login working. Always on.</p></div><input type="checkbox" checked disabled></div>
+    <div class="cookie-row"><div><h3>Analytics</h3><p>Helps us see which pages are useful.</p></div><input type="checkbox" checked></div>
+    <div class="cookie-row"><div><h3>Personalisation</h3><p>Remembers your preferences.</p></div><input type="checkbox"></div>
+    <div class="cookie-row"><div><h3>Notifications</h3><p>Lets us tell you when new content is posted.</p></div><input type="checkbox" checked></div>
+    <form data-success="cookiesDone" style="margin-top:18px;"><button class="btn btn-blue" type="submit">Save preferences</button></form>
+    <div class="notice" id="cookiesDone" hidden>Preferences saved.</div>
+  </div></div>
+</div>
+
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-word">Christ Embassy <span>Lekki</span></div>
+        <p style="max-width:32ch;font-size:0.88rem;">A digital ministry platform for worship, teaching, and community — online and in person.</p>
+        <a class="btn btn-blue" style="margin-top:20px;" href="#" onclick="goToEspees(event)">Give</a>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#/sermons">Sermons</a></li>
+          <li><a href="#/higher-life">Higher Life</a></li>
+          <li><a href="#/blog">Blog &amp; Excerpts</a></li>
+          <li><a href="#/best-dresser">Best Dresser</a></li>
+          <li><a href="#/events">Events</a></li>
+          <li><a href="#/live">Live</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Church</h5>
+        <ul>
+          <li><a href="#/about">About us</a></li>
+          <li><a href="#/ministries">Fellowships &amp; Departments</a></li>
+          <li><a href="#/giving">Giving</a></li>
+          <li><a href="#/prayer">Prayer request</a></li>
+          <li><a href="#/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Account &amp; legal</h5>
+        <ul>
+          <li><a href="#/login">Member sign in</a></li>
+          <li><a href="#/meeting">Meeting</a></li>
+          <li><a href="#/privacy">Privacy policy</a></li>
+          <li><a href="#/terms">Terms of use</a></li>
+          <li><a href="#/cookies">Cookie preferences</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Christ Embassy Lekki. All rights reserved.</span>
+      <span>Prototype build — homepage design system</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Push notification toast (demo) -->
+<div class="toast" id="toast">
+  <span class="toast-dot"></span>
+  <div>
+    <h5 id="toastTitle">New Higher Life episode published</h5>
+    <p id="toastBody">Episode 142 — Carrying Peace Into a Loud Season is now available.</p>
+    <button onclick="hideToast()">Dismiss</button>
+  </div>
+</div>
+<div class="demo-bar">
+  <button class="demo-trigger" id="allPagesBtn">All pages</button>
+  <button class="demo-trigger" onclick="simulateNewPost()">Preview notification</button>
+</div>
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-card" id="sheetCard"></div>
+</div>
+
+<!-- Ad popup (demo) -->
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-card">
+    <div class="ad-banner" id="adBanner">Sponsor space</div>
+    <div class="ad-body">
+      <span class="tag">Sponsored</span>
+      <h4 id="adTitle"></h4>
+      <p id="adText"></p>
+      <div class="ad-actions">
+        <a class="btn btn-blue" id="adLink" href="#" onclick="hideAd(event)">Learn more</a>
+        <button class="ad-close" onclick="hideAd(event)">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ---------------- Media console ---------------- */
+  const stage = document.getElementById('consoleStage');
+  const badge = document.getElementById('consoleBadge');
+  const badgeText = document.getElementById('badgeText');
+  const ccList = document.getElementById('ccList');
+  const ccCount = document.getElementById('ccCount');
+  const tabs = document.querySelectorAll('.console-tab');
+
+  const consoleContent = {
+    live: {
+      cls: '', live: true, badge: 'Live now', count: '128 watching',
+      comments: [
+        ['Ngozi A.','2m ago','Grateful to be watching from Abuja this morning 🙏'],
+        ['David O.','5m ago','This is exactly what I needed to hear today.'],
+        ['Blessing E.','9m ago','Sharing this with my small group tonight!']
+      ]
+    },
+    excerpts: {
+      cls: 'mode-excerpts', live: false, badge: 'New excerpt', count: '46 watching',
+      comments: [
+        ['Chidera N.','1m ago','Rewatching this before I head into a meeting.'],
+        ['Femi A.','6m ago','Three minutes that reset my whole morning.'],
+        ['Uche P.','14m ago','Sending this to my sister.']
+      ]
+    },
+    featured: {
+      cls: 'mode-featured', live: false, badge: 'Featured', count: '73 watching',
+      comments: [
+        ['Kemi S.','3m ago','Episode 142 is exactly what our small group needed.'],
+        ['Tobi J.','8m ago','Been waiting for this one all season.'],
+        ['Ifeanyi C.','15m ago','Taking notes for Bible study tonight.']
+      ]
+    }
+  };
+
+  function renderComments(list){
+    ccList.innerHTML = list.slice(0,2).map(([name,time,text]) => `
+      <div class="cc-item">
+        <div class="cc-avatar"></div>
+        <div class="cc-body"><span class="cc-name">${name}<span class="cc-time">${time}</span></span><p>${text}</p></div>
+      </div>`).join('');
+  }
+
+  function setMode(mode){
+    const c = consoleContent[mode];
+    stage.classList.remove('mode-excerpts','mode-featured');
+    if(c.cls) stage.classList.add(c.cls);
+    badge.classList.toggle('is-live', c.live);
+    badgeText.textContent = c.badge;
+    ccCount.textContent = c.count;
+    ccList.style.opacity = 0;
+    setTimeout(() => {
+      renderComments(c.comments);
+      ccList.style.transition = 'opacity .3s ease';
+      ccList.style.opacity = 1;
+    }, 160);
+    tabs.forEach(t => t.setAttribute('aria-pressed', t.dataset.mode === mode ? 'true' : 'false'));
+  }
+  tabs.forEach(t => t.addEventListener('click', () => setMode(t.dataset.mode)));
+  renderComments(consoleContent.live.comments);
+
+  /* ---------------- Directions ---------------- */
+  const CHURCH_ADDR = "LoveWorld Arena, Aare Bashiru Street, Chisco B/S, Lekki-Epe Expressway, Lagos";
+  const fromInput = document.getElementById('fromInput');
+  function showRoute(origin){
+    const o = encodeURIComponent(origin), d = encodeURIComponent(CHURCH_ADDR);
+    window.open(`https://www.google.com/maps/dir/?api=1&origin=${o}&destination=${d}&travelmode=driving`, '_blank', 'noopener');
+  }
+  document.getElementById('routeForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = fromInput.value.trim();
+    if(!v){ fromInput.focus(); return; }
+    showRoute(v);
+  });
+  document.getElementById('useLocation').addEventListener('click', () => {
+    if(!navigator.geolocation){ fromInput.focus(); return; }
+    navigator.geolocation.getCurrentPosition(pos => {
+      fromInput.value = 'My current location';
+      showRoute(pos.coords.latitude + ',' + pos.coords.longitude);
+    }, () => {
+      fromInput.placeholder = 'Location blocked, type it here';
+      fromInput.focus();
+    });
+  });
+
+  /* ---------------- Give → Espees redirect ----------------
+     Replace ESPEES_MERCHANT_CODE with the code issued to the
+     church once Espees completes merchant onboarding. */
+  const ESPEES_MERCHANT_CODE = "REPLACE_WITH_YOUR_ESPEES_MERCHANT_CODE";
+  function goToEspees(e){
+    e.preventDefault();
+    window.location.href = `https://espees.org/pay?merchant=${ESPEES_MERCHANT_CODE}`;
+  }
+
+  /* ---------------- Single content model (the "blog") ----------------
+     In production this array is the response from the blog/content API.
+     Excerpts, Best Dresser tiles, and Events are all just posts filtered
+     by tag — publish once on the backend, and all three homepage
+     sections update automatically. */
+  const posts = [
+    { tag:'excerpt', title:"Three minutes on rest", meta:"From Sunday's message · Sep 21", duration:"3:42", date:"2026-09-21", author:"Pastor Emeka Okafor", blurb:"A short clip from Sunday's message on why rest is part of obedience, not a reward for finishing everything." },
+    { tag:'excerpt', title:"Why we still gather in person", meta:"Midweek reflection · Sep 18", duration:"2:15", date:"2026-09-18", author:"Pastor Tunde Bello", blurb:"A midweek reflection on what we receive together that we cannot receive alone." },
+    { tag:'excerpt', title:"A prayer for the uncertain", meta:"Prayer night clip · Sep 15", duration:"4:03", date:"2026-09-15", author:"Pastor Ada Nwosu", blurb:"Highlights from prayer night for anyone facing a decision they did not plan for." },
+    { tag:'excerpt', title:"What the youth are building", meta:"Ministry spotlight · Sep 12", duration:"1:58", date:"2026-09-12", author:"Media Team", blurb:"A look at the projects our young people are leading this season." },
+    { tag:'excerpt', title:"Grace for the unfinished", meta:"Sunday message · Sep 7", duration:"3:10", date:"2026-09-07", author:"Pastor Emeka Okafor", blurb:"An excerpt on trusting God with work that is still in progress." },
+    { tag:'excerpt', title:"Gratitude as a habit", meta:"Midweek reflection · Sep 4", duration:"2:47", date:"2026-09-04", author:"Pastor Tunde Bello", blurb:"A midweek reflection on practising thankfulness when it does not come naturally." },
+
+    { tag:'best-dresser', name:"Adaeze & family", note:"This week's feature · Sep 21", feature:true, month:"September", date:"2026-09-22", author:"Media Team", blurb:"This week's featured family, dressed in their Sunday best." },
+    { tag:'best-dresser', name:"Tunde O.", note:"Style highlight", month:"September", date:"2026-09-22", author:"Media Team", blurb:"A style highlight from Sunday's first service." },
+    { tag:'best-dresser', name:"Ifeoma B.", note:"Best dresser", month:"September", date:"2026-09-15", author:"Media Team", blurb:"Our best dresser for the second Sunday of September." },
+    { tag:'best-dresser', name:"The Balogun twins", note:"Family highlight", month:"September", date:"2026-09-08", author:"Media Team", blurb:"Two young members who turned heads in matching outfits." },
+    { tag:'best-dresser', name:"Kelechi & Ada", note:"Style highlight · Aug 24", month:"August", date:"2026-08-24", author:"Media Team", blurb:"A couple whose coordinated look was the talk of the lobby." },
+    { tag:'best-dresser', name:"Sola A.", note:"Best dresser · Aug 17", month:"August", date:"2026-08-17", author:"Media Team", blurb:"Our best dresser for the third Sunday of August." },
+    { tag:'best-dresser', name:"The Eze family", note:"Family highlight · Aug 10", month:"August", date:"2026-08-10", author:"Media Team", blurb:"A family of five in perfectly matched colours." },
+    { tag:'best-dresser', name:"Bisi T.", note:"Style highlight · Jul 27", month:"July", date:"2026-07-27", author:"Media Team", blurb:"A standout look from the last Sunday of July." },
+
+    { tag:'event', day:"05", month:"OCT", title:"Baptism Sunday", meta:"9:00 AM · Main Auditorium", date:"2026-09-26", author:"Pastor Tunde Bello", blurb:"Join us as members publicly declare their faith through baptism. Bring family and friends to celebrate with us." },
+    { tag:'event', day:"12", month:"OCT", title:"Family Fun Day", meta:"10:00 AM · Church Grounds", date:"2026-09-24", author:"Events Team", blurb:"Games, food and fellowship for every age on the church grounds." },
+    { tag:'event', day:"24", month:"OCT", title:"Midweek Prayer Night", meta:"6:30 PM · Online & in person", date:"2026-09-20", author:"Events Team", blurb:"An evening of worship and prayer, in person and online." },
+    { tag:'event', day:"02", month:"NOV", title:"Thanksgiving Service", meta:"9:00 AM · Main Auditorium", date:"2026-09-16", author:"Events Team", blurb:"A special service to give thanks for all God has done this year." },
+    { tag:'event', day:"16", month:"NOV", title:"Marriage Enrichment Seminar", meta:"4:00 PM · Fellowship Hall", date:"2026-09-11", author:"Events Team", blurb:"A practical afternoon for married and engaged couples." },
+    { tag:'event', day:"07", month:"DEC", title:"Carol Night", meta:"6:00 PM · Main Auditorium", date:"2026-09-05", author:"Events Team", blurb:"An evening of carols and candlelight to open the Christmas season." },
+
+    { tag:'announcement', title:"New service time for Sunday Celebration", meta:"Announcement · Sep 20", date:"2026-09-20", author:"Church Office", blurb:"From October, our first Sunday service begins at 8:00 AM.", body:["From the first Sunday of October, our first Sunday Celebration Service will begin at 8:00 AM. The second service stays at 10:30 AM.","The change gives families with young children more room in the morning and eases parking across both services. Ushers will be on hand to guide you, and the livestream schedule is unchanged."] },
+    { tag:'announcement', title:"Youth Conference registration is open", meta:"Announcement · Sep 10", date:"2026-09-10", author:"Church Office", blurb:"Registration is now open for this year's youth conference.", body:["Registration is now open for this year's youth conference. Teenagers and young adults can sign up through the youth desk or by calling the youth ministry line.","Early registration closes soon, and places are limited. Parents are welcome to attend the opening session."] },
+
+    { tag:'article', title:"Finding Rest in a Busy Season", date:"2026-09-27", author:"Pastor Emeka Okafor", read:"4 min read", blurb:"Most of us do not struggle to find work. We struggle to stop. A reflection on rest as a gift before it is a discipline.", body:[
+      "Most of us do not struggle to find work. We struggle to stop. The calendar fills, the phone keeps lighting up, and somewhere along the way rest starts to feel like something we have to earn.",
+      "Scripture treats rest differently. The Sabbath was given before the people had accomplished anything at all. Rest was a gift first, a discipline second, and a quiet declaration that the world does not depend on us.",
+      "That changes how we plan our weeks. Instead of asking when we will finally have time to rest, we can decide what rest looks like and protect it the way we protect a meeting. It might be an unhurried Sunday afternoon, a phone left in another room, or an evening set apart for prayer.",
+      "This week, choose one small pattern of rest and keep it. Notice what changes in your mood, your patience and your prayers. You may find that trusting God with the unfinished is where peace begins."] },
+    { tag:'article', title:"Five Habits That Keep Your Prayer Life Alive", date:"2026-09-19", author:"Pastor Ada Nwosu", read:"5 min read", blurb:"Prayer rarely dies in a dramatic moment. It fades. Here are five simple habits that keep it steady.", body:[
+      "Prayer rarely dies in a dramatic moment. It fades. A busy week, a missed morning, and one day we notice we have not really prayed in a while. The good news is that small habits can carry us through.",
+      "First, pick a fixed time and place. Second, keep a short list of names and needs so your prayers have direction. Third, read a few verses before you speak, so that you begin by listening.",
+      "Fourth, pray with someone else at least once a week. A friend, a spouse or a small group can lift you on days when your own words run dry. Fifth, keep a simple record of answered prayers and read it when you feel discouraged.",
+      "None of these habits is complicated, and none needs to be perfect. Start with one, keep it for a month, and add the next. Prayer grows the way most good things do: gradually, and by showing up."] },
+    { tag:'article', title:"Raising Children Who Love the House of God", date:"2026-09-08", author:"Sister Ifeoma Eze", read:"4 min read", blurb:"Children learn what we love by watching us. A few practical ideas for making church a joy for the whole family.", body:[
+      "Children learn what we love by watching us. If Sunday is a rushed scramble that everyone survives, that is what they will remember. If it is a family rhythm filled with warmth, they will carry that with them.",
+      "Begin the night before. Lay out clothes, talk about what they will learn, and go to bed early. Small preparations change the mood of the whole morning.",
+      "After service, ask one simple question: what did you enjoy today? Listen to the answer. Let them serve in small ways, like handing out bulletins or greeting a new child, so the church becomes a place where they belong and contribute.",
+      "You will not get every Sunday right, and that is fine. What matters is the pattern over years: a family that gathers, prays and celebrates together, and children who know they are welcome."] }
+  ];
+
+  function renderExcerpts(){
+    const row = document.getElementById('excerptsRow');
+    row.innerHTML = posts.filter(p => p.tag === 'excerpt').slice(0,6).map(p => `
+      <div class="excerpt-card">
+        <div class="excerpt-thumb"><span class="dur">${p.duration}</span></div>
+        <h4>${p.title}</h4>
+        <p class="meta">${p.meta}</p>
+      </div>`).join('');
+  }
+
+  function renderBestDressers(){
+    const grid = document.getElementById('bdGrid');
+    grid.innerHTML = posts.filter(p => p.tag === 'best-dresser').slice(0,4).map((p,i) => `
+      <div class="bd-tile ${p.feature ? 'feature' : (i % 2 ? 'alt' : '')}">
+        <div class="cap"><div class="name">${p.name}</div><div class="tag">${p.note}</div></div>
+      </div>`).join('');
+  }
+
+  function renderEvents(){
+    const list = document.getElementById('eventsList');
+    list.innerHTML = posts.filter(p => p.tag === 'event').slice(0,3).map(p => `
+      <div class="event-row">
+        <div class="event-date"><div class="d">${p.day}</div><div class="m">${p.month}</div></div>
+        <div class="event-body"><h4>${p.title}</h4><p class="meta">${p.meta}</p></div>
+        <a class="btn btn-ghost" href="#/events">Details</a>
+      </div>`).join('');
+  }
+
+  renderExcerpts();
+  renderBestDressers();
+  renderEvents();
+
+  /* ---------------- Fellowships & Departments (backend-driven) ---------------- */
+  const departments = [
+    { name:"Worship & Music", note:"Leading the congregation through song, rehearsal, and creative arts.", phone:"+2348030000001" },
+    { name:"Children's Church", note:"Age-appropriate teaching and care every Sunday morning.", phone:"+2348030000002" },
+    { name:"Youth & Young Adults", note:"Community, mentorship, and midweek gatherings for teens and twenties.", phone:"+2348030000003" },
+    { name:"Media & Digital Ministry", note:"The team behind livestreams, excerpts, and this platform.", phone:"+2348030000004" },
+    { name:"Outreach & Missions", note:"Serving Lekki and beyond through partnerships and local projects.", phone:"+2348030000005" },
+    { name:"Prayer Ministry", note:"Intercession, prayer nights, and one-on-one prayer support.", phone:"+2348030000006" },
+    { name:"Ushering & Protocol", note:"Welcoming and seating every guest with excellence.", phone:"+2348030000007" },
+    { name:"Couples Fellowship", note:"Building strong homes through teaching and community.", phone:"+2348030000008" },
+    { name:"Men's Fellowship", note:"Brotherhood, accountability, and growth for men.", phone:"+2348030000009" },
+    { name:"Women's Fellowship", note:"Encouragement and purpose for the women of the house.", phone:"+2348030000010" },
+    { name:"Teens Ministry", note:"A safe, fun space for teenagers to grow in faith.", phone:"+2348030000011" },
+    { name:"Welfare & Care", note:"Supporting members through practical help in hard seasons.", phone:"+2348030000012" }
+  ];
+  const phoneIcon = '<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>';
+  function formatPhone(p){
+    return p.replace(/^(\+234)(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3 $4');
+  }
+  const PAGE_SIZE = 5;
+  let deptVisible = PAGE_SIZE;
+  function renderDepartments(){
+    const grid = document.getElementById('deptGrid');
+    grid.innerHTML = departments.slice(0, deptVisible).map(d => `
+      <div class="min-item">
+        <div>
+          <h4>${d.name}</h4>
+          <p>${d.note}</p>
+          <div class="dept-phone">${phoneIcon}<a href="tel:${d.phone}">${formatPhone(d.phone)}</a></div>
+        </div>
+      </div>`).join('');
+    document.querySelector('.view-more-wrap').hidden = deptVisible >= departments.length;
+  }
+  document.getElementById('deptMore').addEventListener('click', () => {
+    deptVisible += PAGE_SIZE;
+    renderDepartments();
+  });
+  renderDepartments();
+
+  /* ---------------- Testimonies slider ---------------- */
+  const testimonies = [
+    { quote:"I found this church online during a hard season, long before I ever walked through the door. By the time I visited, it already felt like home.", who:"Chiamaka, member since 2024" },
+    { quote:"The midweek teachings changed how I show up at work. I finally understood what it means to carry my faith into every room.", who:"Emeka, Lekki" },
+    { quote:"My children look forward to Sunday more than any other day. The team genuinely loves them.", who:"Folake, parent" },
+    { quote:"Watching online from abroad, I never once felt far from the family. The comments and prayer requests made me feel seen.", who:"Tobenna, watching from London" }
+  ];
+  const tSlider = document.getElementById('tSlider');
+  const tDots = document.getElementById('tDots');
+  let tIndex = 0, tTimer;
+  tSlider.innerHTML = testimonies.map((t,i) => `
+    <div class="t-slide ${i===0?'is-active':''}">
+      <p class="quote">"${t.quote}"</p>
+      <p class="quote-attr">— ${t.who}</p>
+    </div>`).join('');
+  tDots.innerHTML = testimonies.map((_,i) => `<button class="t-dot ${i===0?'is-active':''}" aria-label="Go to testimony ${i+1}" data-i="${i}"></button>`).join('');
+  function goToSlide(i){
+    tIndex = (i + testimonies.length) % testimonies.length;
+    tSlider.querySelectorAll('.t-slide').forEach((el,k) => el.classList.toggle('is-active', k===tIndex));
+    tDots.querySelectorAll('.t-dot').forEach((el,k) => el.classList.toggle('is-active', k===tIndex));
+    restartAuto();
+  }
+  function restartAuto(){ clearInterval(tTimer); tTimer = setInterval(() => goToSlide(tIndex+1), 7000); }
+  document.getElementById('tPrev').addEventListener('click', () => goToSlide(tIndex-1));
+  document.getElementById('tNext').addEventListener('click', () => goToSlide(tIndex+1));
+  tDots.addEventListener('click', e => { if(e.target.dataset.i !== undefined) goToSlide(+e.target.dataset.i); });
+  restartAuto();
+
+  /* ---------------- Push notification (demo) ----------------
+     Production version fires a real browser push (service worker +
+     web push subscription) the moment admin publishes new content.
+     This toast simulates that moment for review purposes. */
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(title, body){
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastBody').textContent = body;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, 6000);
+  }
+  function hideToast(){ toast.classList.remove('is-visible'); }
+  function simulateNewPost(){
+    showToast('New excerpt published', '"What the youth are building" just went live on the blog.');
+  }
+
+  /* ---------------- Ad popup (demo) ----------------
+     Ads come from the backend as a list. Each time the popup fires,
+     it shows the next ad in the list, so with 2+ ads they alternate. */
+  const ads = [
+    { banner:"Sponsor space", title:"Partner announcement", text:"Configurable from the admin backend: swap in a ministry promo or partner message.", link:"#" },
+    { banner:"Ministry promo", title:"Youth Conference tickets", text:"Register early and secure your spot for this year's youth conference.", link:"#" },
+    { banner:"Partner offer", title:"Local partner special", text:"A message from one of our community partners.", link:"#" }
+  ];
+  let adIndex = 0;
+  const adOverlay = document.getElementById('adOverlay');
+  function showAd(){
+    const ad = ads[adIndex % ads.length];
+    adIndex++;
+    document.getElementById('adBanner').textContent = ad.banner;
+    document.getElementById('adTitle').textContent = ad.title;
+    document.getElementById('adText').textContent = ad.text;
+    document.getElementById('adLink').href = ad.link;
+    adOverlay.classList.add('is-visible');
+  }
+  function hideAd(e){ if(e) e.preventDefault(); adOverlay.classList.remove('is-visible'); }
+  // First ad after 20s, then the next (alternating) ad every 90s
+  setTimeout(() => {
+    showAd();
+    setInterval(showAd, 90000);
+  }, 20000);
+
+  /* ================= Pages: data, renderers, router ================= */
+  const $ = id => document.getElementById(id);
+  const pageList = [
+    ['home','Home','Public'],['about','About Us','Public'],['leadership','Leadership','Public'],
+    ['ministries','Fellowships & Departments','Public'],['sermons','Sermons & Teachings','Public'],
+    ['higher-life','Higher Life','Public'],['blog','Blog & Excerpts','Public'],['best-dresser','Sunday Best Dresser','Public'],
+    ['events','Events','Public'],['live','Live','Public'],['giving','Giving','Public'],['prayer','Prayer Request','Public'],
+    ['contact','Contact','Public'],['search','Search','Public'],
+    ['login','Member Login / Register','Members'],['meeting','Meeting (members only)','Members'],
+    ['privacy','Privacy Policy','Legal'],['terms','Terms of Use','Legal'],['cookies','Cookie Preferences','Legal']
+  ];
+  function mountChips(el, items, onPick){
+    el.innerHTML = items.map((t,i) => `<button type="button" class="chip ${i===0?'is-active':''}" data-v="${t}">${t}</button>`).join('');
+    el.addEventListener('click', e => {
+      const b = e.target.closest('.chip'); if(!b) return;
+      el.querySelectorAll('.chip').forEach(c => c.classList.toggle('is-active', c === b));
+      onPick(b.dataset.v);
+    });
+  }
+  const playSvg = '<span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>';
+
+  /* Leadership */
+  const leaders = [
+    { name:"Pastor Emeka Okafor", role:"Senior Pastor", bio:"Leads the church and teaches the Higher Life series." },
+    { name:"Pastor Tunde Bello", role:"Associate Pastor", bio:"Oversees fellowships and small groups." },
+    { name:"Pastor Ada Nwosu", role:"Head of Pastoral Care", bio:"Leads counselling, welfare and prayer teams." },
+    { name:"Deacon Femi Ajayi", role:"Head of Ushering", bio:"Serves guests and keeps every service running well." },
+    { name:"Sister Ifeoma Eze", role:"Children's Ministry Lead", bio:"Cares for and teaches our children every Sunday." },
+    { name:"Brother Segun Ali", role:"Media Director", bio:"Leads livestream, excerpts and the digital ministry." }
+  ];
+  $('leadersGrid').innerHTML = leaders.map(l => {
+    const ini = l.name.replace(/^(Pastor|Deacon|Sister|Brother)\s+/,'').split(' ').map(w => w[0]).join('').slice(0,2);
+    return `<div class="card"><div class="avatar-lg">${ini}</div><h3>${l.name}</h3><p class="role">${l.role}</p><p>${l.bio}</p></div>`;
+  }).join('');
+
+  /* Fellowships & departments (full list) */
+  function renderDeptPage(q){
+    const list = departments.filter(d => (d.name + ' ' + d.note).toLowerCase().includes(q));
+    $('deptPageGrid').innerHTML = list.length ? list.map(d => `
+      <div class="card"><h3>${d.name}</h3><p>${d.note}</p>
+      <div class="dept-phone" style="margin-top:12px;display:inline-flex;gap:7px;align-items:center;font-size:0.86rem;"><span style="width:14px;height:14px;display:inline-block;stroke:var(--blue);">${phoneIcon.replace('<svg','<svg style="width:14px;height:14px;fill:none;stroke:var(--blue);stroke-width:1.8"')}</span><a href="tel:${d.phone}" style="border-bottom:1px solid var(--line);">${formatPhone(d.phone)}</a></div></div>`).join('') : '<p class="empty">Nothing matches your search.</p>';
+  }
+  $('deptSearch').addEventListener('input', e => renderDeptPage(e.target.value.trim().toLowerCase()));
+  renderDeptPage('');
+
+  /* Sermons */
+  const sermons = [
+    { title:"Walking in Purpose", speaker:"Pastor Emeka Okafor", date:"Sep 21", type:"Sunday Service", mins:52 },
+    { title:"Faith at the Workplace", speaker:"Pastor Tunde Bello", date:"Sep 17", type:"Midweek", mins:41 },
+    { title:"The Power of Agreement", speaker:"Pastor Emeka Okafor", date:"Sep 14", type:"Sunday Service", mins:49 },
+    { title:"Raising Children in Faith", speaker:"Pastor Ada Nwosu", date:"Sep 10", type:"Midweek", mins:38 },
+    { title:"A Night of Thanksgiving", speaker:"Pastor Emeka Okafor", date:"Sep 6", type:"Special", mins:63 },
+    { title:"Living Generously", speaker:"Pastor Tunde Bello", date:"Aug 31", type:"Sunday Service", mins:47 },
+    { title:"When Prayer Feels Silent", speaker:"Pastor Ada Nwosu", date:"Aug 27", type:"Midweek", mins:36 },
+    { title:"Marriage Enrichment Night", speaker:"Pastor Emeka Okafor", date:"Aug 22", type:"Special", mins:58 }
+  ];
+  let sermonType = 'All';
+  function renderSermons(){
+    $('sermonGrid').innerHTML = sermons.filter(x => sermonType === 'All' || x.type === sermonType).map(x => `
+      <div class="card link"><div class="thumb dark"><span class="badge">${x.type}</span>${playSvg}<span class="dur">${x.mins} min</span></div>
+      <h3>${x.title}</h3><p class="meta">${x.speaker} · ${x.date}</p></div>`).join('');
+  }
+  mountChips($('sermonChips'), ['All','Sunday Service','Midweek','Special'], v => { sermonType = v; renderSermons(); });
+  renderSermons();
+
+  /* Higher Life */
+  const episodes = [
+    { no:142, title:"Carrying Peace Into a Loud Season", topic:"Peace", season:9, mins:34 },
+    { no:141, title:"The Discipline of Showing Up", topic:"Discipline", season:9, mins:32 },
+    { no:140, title:"What Faith Sounds Like at Work", topic:"Work", season:9, mins:28 },
+    { no:139, title:"Rebuilding After a Hard Year", topic:"Renewal", season:9, mins:35 },
+    { no:138, title:"Prayer as a First Language", topic:"Prayer", season:9, mins:30 },
+    { no:137, title:"Home as a Place of Peace", topic:"Family", season:9, mins:33 },
+    { no:136, title:"Working Without Worry", topic:"Work", season:9, mins:29 },
+    { no:135, title:"The Quiet Habits of Faith", topic:"Discipline", season:9, mins:31 },
+    { no:134, title:"Hope When Plans Change", topic:"Renewal", season:8, mins:36 },
+    { no:133, title:"Praying With Confidence", topic:"Prayer", season:8, mins:27 },
+    { no:132, title:"Building a Peaceful Marriage", topic:"Family", season:8, mins:40 },
+    { no:131, title:"Rest Is Not Laziness", topic:"Peace", season:8, mins:26 }
+  ].map(e => Object.assign({ speaker:"Pastor Emeka Okafor" }, e));
+  const f0 = episodes[0];
+  $('hlFeature').innerHTML = `<div class="ep">Featured · Episode ${f0.no}</div><h3>${f0.title}</h3><p>${f0.speaker} · Season ${f0.season} · ${f0.mins} min</p>`;
+  let hlTopic = 'All', hlSeason = 'all', hlQ = '';
+  function renderHL(){
+    const list = episodes.filter(e => (hlTopic === 'All' || e.topic === hlTopic) && (hlSeason === 'all' || String(e.season) === hlSeason) && (e.title + ' ' + e.topic).toLowerCase().includes(hlQ));
+    $('hlGrid').innerHTML = list.length ? list.map(e => `
+      <div class="card link"><div class="thumb dark"><span class="badge">Ep ${e.no}</span>${playSvg}<span class="dur">${e.mins} min</span></div>
+      <h3>${e.title}</h3><p class="meta">${e.speaker} · Season ${e.season} · ${e.topic}</p></div>`).join('') : '<p class="empty">No episodes match.</p>';
+  }
+  mountChips($('hlChips'), ['All'].concat([...new Set(episodes.map(e => e.topic))]), v => { hlTopic = v; renderHL(); });
+  $('hlSearch').addEventListener('input', e => { hlQ = e.target.value.trim().toLowerCase(); renderHL(); });
+  $('hlSeason').addEventListener('change', e => { hlSeason = e.target.value; renderHL(); });
+  renderHL();
+
+  /* Blog: traditional layout; single source for the homepage sections too */
+  const tagLabel = { 'article':'Article', 'excerpt':'Excerpt', 'best-dresser':'Best Dresser', 'event':'Event', 'announcement':'Announcement' };
+  const pTitle = p => p.title || `Sunday Best Dresser: ${p.name}`;
+  const metaOf = p => p.tag === 'event' ? `${p.day} ${p.month} · ${p.meta}` : (p.meta || p.note || p.blurb || '');
+  const fmtDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+  const readOf = p => p.read || (p.duration ? 'Watch ' + p.duration : '2 min read');
+  const initialsOf = n => n.replace(/^(Pastor|Deacon|Sister|Brother)\s+/, '').split(' ').map(w => w[0]).join('').slice(0,2);
+  const blogPosts = posts.map((p,i) => Object.assign({ id:i }, p)).sort((a,b) => b.date.localeCompare(a.date));
+  const catThumb = { 'article':'g-article', 'excerpt':'g-excerpt', 'event':'g-event', 'best-dresser':'g-dresser', 'announcement':'g-notice' };
+  const bylineHTML = p => `<div class="byline"><span class="av">${initialsOf(p.author)}</span><b>${p.author}</b><span class="sep"></span><span>${fmtDate(p.date)}</span><span class="sep"></span><span>${readOf(p)}</span></div>`;
+  const blogTabsMap = { 'All':null, 'Articles':'article', 'Excerpts':'excerpt', 'Announcements':'announcement', 'Events':'event', 'Best Dresser':'best-dresser' };
+  const PER_PAGE = 5;
+  let blogTag = null, blogQ = '', blogPage = 1;
+  const scrollBlogTop = () => document.querySelector('.blog-bar').scrollIntoView({ behavior:'smooth', block:'start' });
+
+  function renderBlog(){
+    $('blogTabs').innerHTML = Object.entries(blogTabsMap).map(([label,tag]) => `<button type="button" class="blog-tab ${tag === blogTag ? 'is-active' : ''}" data-tag="${tag || ''}">${label}</button>`).join('');
+    const list = blogPosts.filter(p => (!blogTag || p.tag === blogTag) && (pTitle(p) + ' ' + (p.blurb || '')).toLowerCase().includes(blogQ));
+    const feat = (!blogTag && !blogQ && list.length) ? list[0] : null;
+    const rest = feat ? list.slice(1) : list;
+    const pages = Math.max(1, Math.ceil(rest.length / PER_PAGE));
+    if(blogPage > pages) blogPage = pages;
+    const slice = rest.slice((blogPage - 1) * PER_PAGE, blogPage * PER_PAGE);
+
+    $('blogFeatured').innerHTML = (feat && blogPage === 1) ? `
+      <article class="feat">
+        <a class="feat-img ${catThumb[feat.tag]}" href="#/post/${feat.id}" aria-label="${pTitle(feat)}"><span class="badge-cat">${tagLabel[feat.tag]}</span></a>
+        <div class="feat-body"><span class="cat">Featured ${tagLabel[feat.tag]}</span>
+          <h2><a href="#/post/${feat.id}">${pTitle(feat)}</a></h2><p>${feat.blurb}</p>${bylineHTML(feat)}
+          <a class="readmore" href="#/post/${feat.id}">Read the article</a></div>
+      </article>` : '';
+
+    $('blogList').innerHTML = slice.length ? slice.map(p => `
+      <article class="post">
+        <a class="post-thumb ${catThumb[p.tag]}" href="#/post/${p.id}" aria-label="${pTitle(p)}">${p.duration ? `<span class="dur">${p.duration}</span>` : ''}</a>
+        <div><span class="cat">${tagLabel[p.tag]}</span><h3><a href="#/post/${p.id}">${pTitle(p)}</a></h3><p>${p.blurb}</p>${bylineHTML(p)}</div>
+      </article>`).join('') : '<p class="empty">No posts found.</p>';
+
+    let pg = '';
+    if(pages > 1){
+      pg += `<button data-p="${blogPage - 1}" ${blogPage === 1 ? 'disabled' : ''}>Newer</button>`;
+      for(let i = 1; i <= pages; i++) pg += `<button data-p="${i}" class="${i === blogPage ? 'is-active' : ''}">${i}</button>`;
+      pg += `<button data-p="${blogPage + 1}" ${blogPage === pages ? 'disabled' : ''}>Older</button>`;
+    }
+    $('blogPager').innerHTML = pg;
+
+    $('blogCats').innerHTML = Object.entries(blogTabsMap).filter(([l,t]) => t).map(([label,tag]) => `<button class="cat-item" data-tag="${tag}"><span>${label}</span><span>${blogPosts.filter(p => p.tag === tag).length}</span></button>`).join('');
+    $('blogRecent').innerHTML = blogPosts.slice(0,4).map(p => `<a class="recent" href="#/post/${p.id}"><b>${pTitle(p)}</b><span>${fmtDate(p.date)}</span></a>`).join('');
+  }
+  ['blogTabs','blogCats'].forEach(id => $(id).addEventListener('click', e => {
+    const b = e.target.closest('[data-tag]'); if(!b) return;
+    blogTag = b.dataset.tag || null; blogPage = 1; renderBlog(); scrollBlogTop();
+  }));
+  $('blogPager').addEventListener('click', e => {
+    const b = e.target.closest('button[data-p]'); if(!b || b.disabled) return;
+    blogPage = +b.dataset.p; renderBlog(); scrollBlogTop();
+  });
+  $('blogSearch').addEventListener('input', e => { blogQ = e.target.value.trim().toLowerCase(); blogPage = 1; renderBlog(); });
+  renderBlog();
+
+  function renderPost(arg){
+    const p = blogPosts.find(x => x.id === +arg);
+    if(!p){ location.hash = '#/blog'; return; }
+    const i = blogPosts.indexOf(p);
+    const newer = blogPosts[i - 1], older = blogPosts[i + 1];
+    const body = (p.body || [p.blurb]).map(t => `<p>${t}</p>`).join('');
+    const eventBox = p.tag === 'event' ? `<div class="card rows" style="margin:0 0 28px;"><div class="row"><span>Date</span><span>${p.day} ${p.month}</span></div><div class="row"><span>Time and place</span><span>${p.meta}</span></div><div style="padding-top:14px;"><a class="btn btn-blue" href="#">Remind me</a></div></div>` : '';
+    const watch = p.tag === 'excerpt' ? '<a class="readmore" href="#/sermons">Watch the full message in Sermons</a>' : '';
+    const related = blogPosts.filter(x => x.tag === p.tag && x.id !== p.id).slice(0,3);
+    const navCard = (x, label) => x ? `<a class="card link" href="#/post/${x.id}"><span class="meta" style="margin:0 0 4px;display:block;">${label}</span><h3>${pTitle(x)}</h3></a>` : '<span></span>';
+    $('postView').innerHTML = `
+      <div class="crumbs"><a href="#/">Home</a> / <a href="#/blog">Blog</a> / ${tagLabel[p.tag]}</div>
+      <span class="cat">${tagLabel[p.tag]}</span>
+      <h1>${pTitle(p)}</h1>
+      ${bylineHTML(p)}
+      <div class="hero-img ${catThumb[p.tag]}">${p.tag === 'excerpt' ? playSvg : ''}</div>
+      ${eventBox}
+      <div class="article-body ${p.tag === 'article' ? 'dropcap' : ''}">${body}</div>
+      ${watch}
+      <div class="share-row"><b>Share</b><button class="chip" id="copyLink" type="button">Copy link</button></div>
+      <div class="postnav">${navCard(older, 'Older')}${navCard(newer, 'Newer')}</div>
+      ${related.length ? `<h2 class="sub">More from ${tagLabel[p.tag]}s</h2><div class="grid">${related.map(r => `<a class="card link" href="#/post/${r.id}"><span class="cat">${tagLabel[r.tag]}</span><h3 style="margin-top:6px;">${pTitle(r)}</h3><p class="meta">${fmtDate(r.date)}</p></a>`).join('')}</div>` : ''}`;
+    $('copyLink').addEventListener('click', () => {
+      if(navigator.clipboard) navigator.clipboard.writeText(location.href);
+      $('copyLink').textContent = 'Link copied';
+    });
+    document.title = pTitle(p) + ' · Christ Embassy Lekki';
+  }
+
+  /* Best Dresser archive */
+  let bdMonth = 'All';
+  function renderBDPage(){
+    const list = posts.filter(p => p.tag === 'best-dresser' && (bdMonth === 'All' || p.month === bdMonth));
+    $('bdPageGrid').innerHTML = list.map((p,i) => `
+      <div class="bd-tile ${i === 0 && bdMonth === 'All' ? 'feature' : (i % 2 ? 'alt' : '')}">
+        <div class="cap"><div class="name">${p.name}</div><div class="tag">${p.note}</div></div></div>`).join('');
+  }
+  mountChips($('bdChips'), ['All','September','August','July'], v => { bdMonth = v; renderBDPage(); });
+  $('shareBtn').addEventListener('click', () => {
+    if(navigator.share){ navigator.share({ title:'Sunday Best Dresser', url:location.href }); }
+    else if(navigator.clipboard){ navigator.clipboard.writeText(location.href); $('shareBtn').textContent = 'Link copied'; }
+  });
+  renderBDPage();
+
+  /* Events */
+  $('eventsPageList').innerHTML = posts.filter(p => p.tag === 'event').map(p => `
+    <div class="event-row">
+      <div class="event-date"><div class="d">${p.day}</div><div class="m">${p.month}</div></div>
+      <div class="event-body"><h4>${p.title}</h4><p class="meta">${p.meta}</p></div>
+      <a class="btn btn-ghost" href="#">Remind me</a>
+    </div>`).join('');
+
+  /* Meeting (members only) + login */
+  const meetings = [
+    { title:"Leaders' Prayer Meeting", when:"Tue, Sep 30 · 6:30 PM", who:"Leaders" },
+    { title:"Couples Fellowship", when:"Fri, Oct 3 · 7:00 PM", who:"Couples" },
+    { title:"Members' Bible Study", when:"Wed, Oct 8 · 6:00 PM", who:"All members" }
+  ];
+  $('meetingGrid').innerHTML = meetings.map(m => `
+    <div class="card"><h3>${m.title}</h3><p class="meta">${m.when} · ${m.who}</p>
+    <a class="btn btn-blue" style="margin-top:14px;" href="#">Join room</a></div>`).join('');
+  let memberIn = false;
+  function renderMeeting(){ $('meetingGate').hidden = memberIn; $('meetingRoom').hidden = !memberIn; }
+  $('signOutBtn').addEventListener('click', () => { memberIn = false; renderMeeting(); });
+  mountChips($('authChips'), ['Sign in','Register'], v => { $('signinForm').hidden = v !== 'Sign in'; $('registerForm').hidden = v !== 'Register'; });
+  [$('signinForm'), $('registerForm')].forEach(f => f.addEventListener('submit', e => { e.preventDefault(); memberIn = true; location.hash = '#/meeting'; }));
+
+  /* Generic success forms (prayer, contact, cookies) */
+  document.querySelectorAll('form[data-success]').forEach(f => f.addEventListener('submit', e => {
+    e.preventDefault(); f.hidden = true; $(f.dataset.success).hidden = false;
+  }));
+
+  /* Site search */
+  function searchIndex(){
+    return [].concat(
+      posts.map((p,i) => ({ type:tagLabel[p.tag], title:pTitle(p), meta:metaOf(p), route:'post/' + i })),
+      episodes.map(e => ({ type:'Higher Life', title:`Ep ${e.no}: ${e.title}`, meta:`${e.speaker} · Season ${e.season}`, route:'higher-life' })),
+      sermons.map(x => ({ type:'Sermon', title:x.title, meta:`${x.speaker} · ${x.date}`, route:'sermons' })),
+      departments.map(d => ({ type:'Fellowship / Department', title:d.name, meta:d.note, route:'ministries' })),
+      leaders.map(l => ({ type:'Leadership', title:l.name, meta:l.role, route:'leadership' }))
+    );
+  }
+  function renderSearch(q){
+    const box = $('searchResults');
+    if(q.length < 2){ box.innerHTML = '<p class="empty" style="grid-column:1/-1;">Type at least two letters to search.</p>'; return; }
+    const hits = searchIndex().filter(r => (r.title + ' ' + r.meta + ' ' + r.type).toLowerCase().includes(q));
+    box.innerHTML = hits.length ? hits.map(r => `<a class="card link" href="#/${r.route}"><span class="meta" style="margin:0 0 6px;display:block;">${r.type}</span><h3>${r.title}</h3><p>${r.meta}</p></a>`).join('') : '<p class="empty" style="grid-column:1/-1;">No results found.</p>';
+  }
+  $('searchInput').addEventListener('input', e => renderSearch(e.target.value.trim().toLowerCase()));
+  renderSearch('');
+
+  /* All-pages sheet */
+  const sheet = $('sheet');
+  function buildSheet(current){
+    let html = '<div class="sheet-head"><h3>All pages</h3><button class="sheet-close" id="sheetClose" aria-label="Close">&times;</button></div>';
+    ['Public','Members','Legal'].forEach(g => {
+      html += `<div class="sheet-group">${g}</div>` + pageList.filter(x => x[2] === g).map(x => `<a href="#/${x[0] === 'home' ? '' : x[0]}" class="${x[0] === current ? 'is-current' : ''}">${x[1]}</a>`).join('');
+    });
+    $('sheetCard').innerHTML = html;
+    $('sheetClose').addEventListener('click', () => sheet.hidden = true);
+  }
+  $('menuToggle').addEventListener('click', () => { buildSheet(currentKey); sheet.hidden = false; });
+  $('allPagesBtn').addEventListener('click', () => { buildSheet(currentKey); sheet.hidden = false; });
+  sheet.addEventListener('click', e => { if(e.target === sheet || e.target.closest('a')) sheet.hidden = true; });
+
+  /* Router */
+  let currentKey = 'home';
+  document.addEventListener('click', e => { const a = e.target.closest('a[href="#"]'); if(a) e.preventDefault(); });
+  function route(){
+    if(location.hash === '#main') return;
+    const rawParts = (location.hash.replace(/^#\/?/, '') || 'home').split('?')[0].split('/');
+    let key = rawParts[0]; const routeArg = rawParts[1];
+    const pages = document.querySelectorAll('.page');
+    if(![...pages].some(p => p.dataset.page === key)) key = 'home';
+    currentKey = key;
+    pages.forEach(p => p.classList.toggle('is-active', p.dataset.page === key));
+    document.querySelectorAll('.primary-nav a').forEach(a => a.classList.toggle('is-current', a.dataset.route === (key === 'post' ? 'blog' : key)));
+    if(key === 'meeting') renderMeeting();
+    if(key === 'post') renderPost(routeArg);
+    window.scrollTo({ top:0, behavior:'instant' });
+    if(key === 'search') setTimeout(() => $('searchInput').focus(), 60);
+    const label = (pageList.find(x => x[0] === key) || [])[1];
+    if(key !== 'post') document.title = (label && key !== 'home' ? label + ' · ' : '') + 'Christ Embassy Lekki';
+  }
+  window.addEventListener('hashchange', route);
+  renderMeeting();
+  route();
+</script>
+
+</body>
+</html>
